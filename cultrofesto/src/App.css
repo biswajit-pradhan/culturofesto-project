@@ -158,3 +158,13 @@
   font-size: smaller;
   font-weight: bold;
 }
+
+.carousel-inner .current {
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(0);
+}
+
+.carousel-inner .next {
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(100%);
+}

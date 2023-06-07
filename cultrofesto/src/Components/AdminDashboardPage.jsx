@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const events = [
   {
@@ -46,7 +47,9 @@ const AdminDashboardPage = () => {
         <h1>Admin DashBoard</h1>
       </div>
       <div className="admin-create-event-button">
-        <button className="btn btn-primary">Create Event</button>
+        <Link to="/event-create">
+          <button className="btn btn-primary">Create Event</button>
+        </Link>
       </div>
       <div className="event-container">
         <h2 className="admin-event-header">List of Events</h2>
@@ -57,7 +60,9 @@ const AdminDashboardPage = () => {
                 <h1 className="card-title">{event.eventName}</h1>
                 <p className="card-text">Event ID: {event.eventId}</p>
                 <div className="btn-group">
-                  <button className="btn btn-secondary">Modify</button>
+                  <Link to="/event-edit">
+                    <button className="btn btn-secondary">Modify</button>
+                  </Link>
                   <button className="btn btn-danger">Delete</button>
                 </div>
               </div>
