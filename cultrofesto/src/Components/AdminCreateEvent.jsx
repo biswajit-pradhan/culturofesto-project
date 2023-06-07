@@ -225,7 +225,7 @@ const AdminCreateEvent = () => {
             <div className="col-md-6">
               <div className="form-group">
                 <label htmlFor="lunchPrice" className="form-label">
-                  Launch Price
+                  Lunch Price
                 </label>
                 {errors.lunchPrice && touched.lunchPrice ? (
                   <p className="form_errors">{errors.lunchPrice}</p>
