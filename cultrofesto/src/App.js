@@ -1,22 +1,14 @@
 import "./App.css";
-import AdminCreateEvent from "./Components/AdminCreateEvent";
-
+import EventBookingPage from "./Components/EventBookingPage";
 
 function App() {
   return (
     <>
-
-
       <div className="bg">
-      <AdminCreateEvent/>
+        <EventBookingPage />
       </div>
-
     </>
   );
 }
 
-
 export default App;
-
-
-
