@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.bg {
+  width: 100%;
+  min-height: 100vh;
+  background-size: 300% 300%;
+  background-image: linear-gradient(
+    -45deg,
+    red 0%,
+    pink 25%,
+    orange 51%,
+    purple 100%
+  );
+  animation: AnimateBG 5s ease infinite;
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.admin_container {
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: darkblue;
+}
+
+.admin-create-event-button {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.event-container {
+  background-color: transparent;
+  padding: 20px;
+}
+
+.admin-event-header {
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: darkblue;
+  font-weight: bold;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card-grid .event-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-item:hover {
+  transform: translateY(-10px);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  margin-left: 6px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.admin-create-event-button .btn-primary:hover {
+  background-color: transparent;
+  border-color: blue;
+  color: blue;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.event_edit_title {
+  text-align: center;
+  text-transform: uppercase;
+  color: darkblue;
+  font-weight: bolder;
+}
+.event-booking-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+}
+
+.form-row {
+  margin-bottom: 15px;
+}
+.page_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+.page_container .text-center {
+  text-transform: uppercase;
+  text-shadow: #777 0.5px 1px;
+  font-weight: bold;
+}
+
+.page_container .form-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+}
+.form_errors {
+  color: red;
+  font-size: smaller;
+  font-weight: bold;
+}
