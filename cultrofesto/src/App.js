@@ -1,12 +1,9 @@
 import "./App.css";
-import EventBookingPage from "./Components/EventBookingPage";
 
 function App() {
   return (
     <>
-      <div className="bg">
-        <EventBookingPage />
-      </div>
+      <div className="bg"></div>
     </>
   );
 }

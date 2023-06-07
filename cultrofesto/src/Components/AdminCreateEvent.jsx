@@ -16,7 +16,14 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
-  eventName: Yup.string().min(2).max(25).required("Please set event name!!"),
+  eventName: Yup.string()
+    .matches(
+      /^[a-zA-Z][a-zA-Z\s]*$/,
+      "Event name should contain only alphabets"
+    )
+    .min(2)
+    .max(25)
+    .required("Please set event name!!"),
   registrationOpenDate: Yup.string().required(
     "Please set registration open date!!"
   ),
@@ -47,7 +54,7 @@ const AdminCreateEvent = () => {
   return (
     <div className="page_container">
       <div className="event-booking-container">
-        <h1 className="text-center">Event Booking Form</h1>
+        <h1 className="text-center">Event Creation Form</h1>
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-md-6">
