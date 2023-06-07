@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const event = [
   {
-    eventName: "Event 1",
+    eventName: "SUNBURN GOA",
     registrationOpenDate: "2023-06-01",
     registrationCloseDate: "2023-06-10",
     eventStartTime: "10:00",
@@ -12,7 +12,7 @@ const event = [
     breakfastPrice: 10.0,
     lunchPrice: 15.0,
     dinnerPrice: 20.0,
-    eventImage: null,
+    eventImage: "https://i.ytimg.com/vi/We_i5gv6MUs/maxresdefault.jpg",
   },
 ];
 
@@ -46,7 +46,8 @@ const EventDetailsPage = ({ eventId, isLoggedIn }) => {
     <div>
       <div className="card mb-3">
         <img
-          src={`data:image/png;base64,${event[0].eventImage}`}
+          // src={`data:image/png;base64,${event[0].eventImage}`}
+          src={event[0].eventImage}
           alt="Event"
           className="card-img-top"
         />
