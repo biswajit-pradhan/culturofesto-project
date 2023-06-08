@@ -23,7 +23,10 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/admin" element={<AdminDashboardPage />} />
           <Route path="/user" element={<UserDashboardPage />} />
-          <Route path="/event-details" element={<EventDetailsPage />} />
+          <Route
+            path="/event-details/:eventId"
+            element={<EventDetailsPage />}
+          />
           <Route path="/event-create" element={<AdminCreateEvent />} />
           <Route path="/event-edit" element={<AdminEventEditPage />} />
         </Routes>
