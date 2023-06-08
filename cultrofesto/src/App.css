@@ -6,10 +6,10 @@
   background-size: 300% 300%;
   background-image: linear-gradient(
     -45deg,
-    red 0%,
-    pink 25%,
-    orange 51%,
-    purple 100%
+    blue 0%,
+    rgb(0, 119, 255) 25%,
+    pink 51%,
+    rgb(255, 32, 255) 100%
   );
   animation: AnimateBG 5s ease infinite;
 }
@@ -159,6 +159,39 @@
   font-weight: bold;
 }
 
+.navbar-light .nav_link {
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.search-section {
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage_upcoming_title {
+  text-decoration: none;
+  text-transform: uppercase;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
+  color: aqua;
+}
+
+.flex-grow-1 .container .card .card-body {
+  font-family: "Poppins", sans-serif;
+  text-shadow: 0.1px 0px black;
+  color: black;
+  font-weight: bold;
+}
+
 .carousel-inner .current {
   transition: transform 0.5s ease-in-out;
   transform: translateX(0);
@@ -167,4 +200,15 @@
 .carousel-inner .next {
   transition: transform 0.5s ease-in-out;
   transform: translateX(100%);
+}
+
+.user_upcoming {
+  text-align: center;
+  align-items: center;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 30px;
+  color: whitesmoke;
+  text-shadow: 1px 1px black;
 }

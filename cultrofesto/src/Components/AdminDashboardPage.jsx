@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const events = [
   {
@@ -41,36 +41,46 @@ const events = [
 ];
 
 const AdminDashboardPage = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="admin_container">
-      <div className="admin-header">
-        <h1>Admin DashBoard</h1>
-      </div>
-      <div className="admin-create-event-button">
-        <Link to="/event-create">
-          <button className="btn btn-primary">Create Event</button>
-        </Link>
-      </div>
-      <div className="event-container">
-        <h2 className="admin-event-header">List of Events</h2>
-        <div className="card-grid">
-          {events.map((event) => (
-            <div key={event.eventId} className="event-item card">
-              <div className="card-body">
-                <h1 className="card-title">{event.eventName}</h1>
-                <p className="card-text">Event ID: {event.eventId}</p>
-                <div className="btn-group">
-                  <Link to="/event-edit">
-                    <button className="btn btn-secondary">Modify</button>
-                  </Link>
-                  <button className="btn btn-danger">Delete</button>
+    <>
+      <NavLink to="#" onClick={handleBack} className="btn">
+        🔙
+      </NavLink>
+      <div className="admin_container">
+        <div className="admin-header">
+          <h1>Admin DashBoard</h1>
+        </div>
+        <div className="admin-create-event-button">
+          <Link to="/event-create">
+            <button className="btn btn-primary">Create Event</button>
+          </Link>
+        </div>
+        <div className="event-container">
+          <h2 className="admin-event-header">List of Events</h2>
+          <div className="card-grid">
+            {events.map((event) => (
+              <div key={event.eventId} className="event-item card">
+                <div className="card-body">
+                  <h1 className="card-title">{event.eventName}</h1>
+                  <p className="card-text">Event ID: {event.eventId}</p>
+                  <div className="btn-group">
+                    <Link to="/event-edit">
+                      <button className="btn btn-secondary">Modify</button>
+                    </Link>
+                    <button className="btn btn-danger">Delete</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

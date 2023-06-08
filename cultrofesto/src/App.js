@@ -8,6 +8,8 @@ import HomePage from "./Components/HomePage";
 import SearchPage from "./Components/SearchPage";
 import Navbar from "./Components/Navbar";
 import AdminCreateEvent from "./Components/AdminCreateEvent";
+import UserDashboardPage from "./Components/UserDashboardPage";
+import EventDetailsPage from "./Components/EventDetailsPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/admin" element={<AdminDashboardPage />} />
+          <Route path="/user" element={<UserDashboardPage />} />
+          <Route path="/event-details" element={<EventDetailsPage />} />
           <Route path="/event-create" element={<AdminCreateEvent />} />
           <Route path="/event-edit" element={<AdminEventEditPage />} />
         </Routes>

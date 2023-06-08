@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const HomePage = () => {
   const isLoggedIn = true; // Placeholder variable, replace with actual login status
@@ -98,26 +98,30 @@ const HomePage = () => {
 
   return (
     <div className="d-flex flex-column min-vh-100">
-      <div className="flex-grow-1 d-flex align-items-center justify-content-center min-vh-100 ">
-        <form className="form-inline ">
-          <input
-            className="form-control mr-sm-4"
-            type="text"
-            placeholder="Search"
-          />
-          <Link to="/search">
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={handleSearchClick}
-            >
-              Search
-            </button>
-          </Link>
-        </form>
+      <div className="search-section">
+        <div className="flex-grow-1 d-flex align-items-center justify-content-center min-vh-100">
+          <form className="form-inline">
+            <div className="input-group">
+              <input
+                className="form-control mr-sm-4"
+                type="text"
+                placeholder="Search"
+              />
+              <NavLink to="/search" className="search_button">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={handleSearchClick}
+                >
+                  Search
+                </button>
+              </NavLink>
+            </div>
+          </form>
+        </div>
       </div>
 
-      <h2>UpComming Events</h2>
+      <h2 className="homepage_upcoming_title">UpComming Events</h2>
       <section className="flex-grow-1  min-vh-100">
         <div className="container event-item">
           <div className="row">

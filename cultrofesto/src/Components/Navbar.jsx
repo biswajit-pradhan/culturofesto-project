@@ -1,20 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light ">
-      <Link to="/">
+      <NavLink to="/" className="nav_link">
         <span className="navbar-brand">CuturoFesto</span>
-      </Link>
+      </NavLink>
 
       <div className="ml-auto">
-        <a href="/admin" className="text-info">
+        <NavLink to="/user" className="btn btn-primary">
+          UserPage
+        </NavLink>
+        <NavLink to="/admin" className="btn btn-primary">
           AdminPage
-        </a>
-        <Link to="/login">
+        </NavLink>
+        <NavLink to="/login">
           <button className="btn btn-primary mr-2">Login</button>
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

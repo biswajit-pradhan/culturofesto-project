@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const eventData = [
   {
@@ -96,147 +97,155 @@ const AdminEventEditPage = () => {
     e.preventDefault();
     // TODO: Implement your form submission logic
   };
-
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
   return (
-    <div className="container admin_event_edit">
-      <h1 className="mt-4 event_edit_title">Edit Event</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Event Name:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={eventName}
-            onChange={handleEventNameChange}
-          />
-        </div>
+    <>
+      <NavLink to="#" onClick={handleBack} className="btn">
+        🔙
+      </NavLink>
+      <div className="container admin_event_edit">
+        <h1 className="mt-4 event_edit_title">Edit Event</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Event Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={eventName}
+              onChange={handleEventNameChange}
+            />
+          </div>
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Registration Open Date:</label>
-              <input
-                type="date"
-                className="form-control"
-                value={registrationOpenDate}
-                onChange={handleRegistrationOpenDateChange}
-              />
+          <div className="row">
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label className="form-label">Registration Open Date:</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  value={registrationOpenDate}
+                  onChange={handleRegistrationOpenDateChange}
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label className="form-label">Registration Close Date:</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  value={registrationCloseDate}
+                  onChange={handleRegistrationCloseDateChange}
+                />
+              </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Registration Close Date:</label>
-              <input
-                type="date"
-                className="form-control"
-                value={registrationCloseDate}
-                onChange={handleRegistrationCloseDateChange}
-              />
-            </div>
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Event Start Time:</label>
-              <input
-                type="time"
-                className="form-control"
-                value={eventStartTime}
-                onChange={handleEventStartTimeChange}
-              />
+          <div className="row">
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label className="form-label">Event Start Time:</label>
+                <input
+                  type="time"
+                  className="form-control"
+                  value={eventStartTime}
+                  onChange={handleEventStartTimeChange}
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label className="form-label">Event Close Time:</label>
+                <input
+                  type="time"
+                  className="form-control"
+                  value={eventCloseTime}
+                  onChange={handleEventCloseTimeChange}
+                />
+              </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Event Close Time:</label>
-              <input
-                type="time"
-                className="form-control"
-                value={eventCloseTime}
-                onChange={handleEventCloseTimeChange}
-              />
-            </div>
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Registration Fee:</label>
-              <input
-                type="number"
-                className="form-control"
-                value={registrationFee}
-                onChange={handleRegistrationFeeChange}
-              />
+          <div className="row">
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label className="form-label">Registration Fee:</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={registrationFee}
+                  onChange={handleRegistrationFeeChange}
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="mb-3">
+                <label className="form-label">Event Capacity:</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={eventCapacity}
+                  onChange={handleEventCapacityChange}
+                />
+              </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Event Capacity:</label>
-              <input
-                type="number"
-                className="form-control"
-                value={eventCapacity}
-                onChange={handleEventCapacityChange}
-              />
-            </div>
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-md-4">
-            <div className="mb-3">
-              <label className="form-label">Breakfast Price:</label>
-              <input
-                type="number"
-                className="form-control"
-                value={breakfastPrice}
-                onChange={handleBreakfastPriceChange}
-              />
+          <div className="row">
+            <div className="col-md-4">
+              <div className="mb-3">
+                <label className="form-label">Breakfast Price:</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={breakfastPrice}
+                  onChange={handleBreakfastPriceChange}
+                />
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="mb-3">
+                <label className="form-label">Lunch Price:</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={lunchPrice}
+                  onChange={handleLunchPriceChange}
+                />
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="mb-3">
+                <label className="form-label">Dinner Price:</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={dinnerPrice}
+                  onChange={handleDinnerPriceChange}
+                />
+              </div>
             </div>
           </div>
-          <div className="col-md-4">
-            <div className="mb-3">
-              <label className="form-label">Lunch Price:</label>
-              <input
-                type="number"
-                className="form-control"
-                value={lunchPrice}
-                onChange={handleLunchPriceChange}
-              />
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="mb-3">
-              <label className="form-label">Dinner Price:</label>
-              <input
-                type="number"
-                className="form-control"
-                value={dinnerPrice}
-                onChange={handleDinnerPriceChange}
-              />
-            </div>
-          </div>
-        </div>
 
-        <div className="mb-3">
-          <label className="form-label">Event Image:</label>
-          <input
-            type="file"
-            accept="image/*"
-            className="form-control"
-            onChange={handleEventImageChange}
-          />
-        </div>
+          <div className="mb-3">
+            <label className="form-label">Event Image:</label>
+            <input
+              type="file"
+              accept="image/*"
+              className="form-control"
+              onChange={handleEventImageChange}
+            />
+          </div>
 
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
-    </div>
+          <button type="submit" className="btn btn-primary">
+            Save
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 
