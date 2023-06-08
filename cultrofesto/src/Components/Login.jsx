@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
 // import "./style.css";
-
-function Home() {
-  return <div>Home Component</div>;
-}
 
 function Login() {
   const [user, setUser] = useState({
     userName: "",
-    password: ""
+    password: "",
   });
   const [errors, setErrors] = useState({});
   const [msg, setMsg] = useState("");
@@ -18,7 +15,7 @@ function Login() {
   const changeHandler = (event) => {
     setUser({
       ...user,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -45,27 +42,33 @@ function Login() {
   };
 
   const loginUser = async () => {
-    let authCode = "Basic " + btoa(user.userName + ":" + user.password);
-
-    try {
-      const response = await axios.get("http://localhost:8080/api/user/login", {
-        headers: { Authorization: authCode }
-      });
-      const data = response.data;
-
-      console.log("login success " + data);
-      localStorage.setItem("userName", data.userName);
-      setIsLoggedIn(true);
-    } catch (error) {
-      console.error(error);
-      setMsg("Invalid Credentials");
-    }
+    // let authCode = "Basic " + btoa(user.userName + ":" + user.password);
+    // try {
+    //   const response = await axios.get("http://localhost:8080/api/user/login", {
+    //     headers: { Authorization: authCode },
+    //   });
+    //   const data = response.data;
+    //   console.log("login success " + data);
+    //   localStorage.setItem("userName", data.userName);
+    //   setIsLoggedIn(true);
+    // } catch (error) {
+    //   console.error(error);
+    //   setMsg("Invalid Credentials");
+    // }
   };
 
-  return (
-    isLoggedIn ? (
-      <div>Home Component</div>
-    ) : (
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  return isLoggedIn ? (
+    <div>Home Component</div>
+  ) : (
+    <>
+      <NavLink to="#" className="btn" onClick={handleBack}>
+        🔙
+      </NavLink>
       <div id="login">
         <h3 className="text-center text-white pt-5">Login Form</h3>
         <div className="container">
@@ -112,7 +115,10 @@ function Login() {
                     Login
                   </button>
                   <span>
-                    &nbsp;&nbsp;<a href="/signup" className="text-info">Register Here</a>
+                    &nbsp;&nbsp;
+                    <NavLink to="/signup" className="text-info">
+                      Register Here
+                    </NavLink>
                   </span>
                 </div>
               </div>
@@ -120,7 +126,7 @@ function Login() {
           </div>
         </div>
       </div>
-    )
+    </>
   );
 }
 

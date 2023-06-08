@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 // import GetBook from "../getBook";
 
 const SearchPage = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
   const [bid, setBid] = useState(0);
   const [msg, setMsg] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -63,6 +68,9 @@ const SearchPage = () => {
   return (
     <div>
       <div>
+        <NavLink to="#" onClick={handleBack} className="btn">
+          🔙
+        </NavLink>
         <h1>Search a Event</h1>
         <form className="form-inline my-2 my-lg-0">
           <input
