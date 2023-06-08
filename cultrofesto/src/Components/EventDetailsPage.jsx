@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 
 const eventData = [
   {
@@ -39,48 +41,52 @@ const eventData = [
   },
 ];
 
-const EventDetailsPage = (props) => {
-  // const [event, setEvent] = useState(eventData);
-  // useEffect(() => {
-  //   // Fetch event details from the backend API
-  //   const fetchEventDetails = async () => {
-  //     try {
-  //       // const response = await fetch(`/api/events/${eventId}`);
-  //       // const data = await response.json();
-  //     } catch (error) {
-  //       console.error("Error fetching event details:", error);
-  //     }
-  //   };
+const EventDetailsPage = () => {
+  const { eventId } = useParams();
+  const [event, setEvent] = useState(null);
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
 
-  //   fetchEventDetails();
-  // }, [eventId]);
+  useEffect(() => {
+    const fetchEventDetails = async () => {
+      try {
+        // Simulating setting event details from eventData
+        const eventDetails = eventData.find(
+          (event) => event.eventId === parseInt(eventId)
+        );
+        setEvent(eventDetails);
+      } catch (error) {
+        console.error("Error fetching event details:", error);
+      }
+    };
+
+    fetchEventDetails();
+  }, [eventId]);
 
   const handleBookTicket = () => {
-    // Handle book ticket action
-    // You can implement the logic for booking a ticket here
     console.log("Book ticket clicked!");
   };
 
-  // if (!event) {
-  //   return <div>Loading event details...</div>;
-  // }
+  if (!event) {
+    return <div>Loading event details...</div>;
+  }
 
-  const filteredData = () => {
-    return eventData.filter((card) => card.id === props.eventId);
-  };
-
-  const event = filteredData(props.eventId);
   return (
     <>
+      <NavLink to="#" onClick={handleBack} className="btn">
+        🔙
+      </NavLink>
       <div>
         <h1>{event.eventName}</h1>
+        <p>Event ID: {event.eventId}</p>
+        <p>Event Capacity: {event.eventCapacity}</p>
       </div>
 
-      {/* {isLoggedIn && (
-          <button className="btn btn-primary" onClick={handleBookTicket}>
-            Book Ticket
-          </button>
-        )} */}
+      <button className="btn btn-primary" onClick={handleBookTicket}>
+        Book Ticket
+      </button>
     </>
   );
 };

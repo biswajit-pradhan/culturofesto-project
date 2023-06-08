@@ -1,7 +1,6 @@
 import { Carousel } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import EventDetailsPage from "./EventDetailsPage";
 
 const eventData = [
   {
@@ -56,39 +55,82 @@ const UserDashboardPage = () => {
 
   return (
     <>
-      <NavLink to="#" onClick={handleBack} className="btn">
-        🔙
-      </NavLink>
-      <h3 className="user_upcoming">Upcoming Registered Events</h3>
-      <div>
-        <Carousel
-          style={{ display: "flex", justifyContent: "center" }}
-          activeIndex={index}
-          onSelect={handleSelect}
-          interval={1400}
-        >
-          {eventData.map((event) => (
-            <Carousel.Item key={event.eventId}>
-              <div className="d-flex justify-content-center">
-                <div className="card" style={{ width: "25rem" }}>
-                  <div className="card-body">
-                    <h5 className="card-title">{event.eventId}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">
-                      {event.eventName}
-                    </h6>
-                    <p className="card-text">{event.eventCapacity}</p>
-                    <NavLink
-                      to={<EventDetailsPage eventId={event.eventId} />}
-                      className="card-link"
-                    >
-                      Details
-                    </NavLink>
+      <div className="user_dashboard_background">
+        <NavLink to="#" onClick={handleBack} className="btn">
+          🔙
+        </NavLink>
+        <h3 className="user_upcoming">Upcoming Registered Events</h3>
+        <div>
+          <Carousel
+            style={{ display: "flex", justifyContent: "center" }}
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={1400}
+            indicators={false} // Set indicators prop to false
+          >
+            {eventData.map((event) => (
+              <Carousel.Item key={event.eventId}>
+                <div className="d-flex justify-content-center">
+                  <div className="card" style={{ width: "50rem" }}>
+                    <div className="card-body d-flex flex-column align-items-center">
+                      <h5 className="card-title">{event.eventName}</h5>
+                      <h6 className="card-subtitle mb-2 text-muted">
+                        Event Id: {event.eventId}
+                      </h6>
+                      <p className="card-text">
+                        Event Capacity: {event.eventCapacity}
+                      </p>
+
+                      <NavLink
+                        to={`/event-details/${event.eventId}`} // Pass the event ID as part of the URL
+                        className="btn btn-primary"
+                      >
+                        Details
+                      </NavLink>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Carousel.Item>
-          ))}
-        </Carousel>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div>
+        <div>
+          <h3 className="user_upcoming">Last 5 Month Events you attended</h3>
+          <div>
+            <Carousel
+              style={{ display: "flex", justifyContent: "center" }}
+              activeIndex={index}
+              onSelect={handleSelect}
+              interval={1500}
+              indicators={false}
+            >
+              {eventData.map((event) => (
+                <Carousel.Item key={event.eventId}>
+                  <div className="d-flex justify-content-center">
+                    <div className="card" style={{ width: "50rem" }}>
+                      <div className="card-body d-flex flex-column align-items-center">
+                        <h5 className="card-title">{event.eventName}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">
+                          Event Id: {event.eventId}
+                        </h6>
+                        <p className="card-text">
+                          Event Capacity: {event.eventCapacity}
+                        </p>
+
+                        <NavLink
+                          to={`/event-details/${event.eventId}`} // Pass the event ID as part of the URL
+                          className="btn btn-primary"
+                        >
+                          Details
+                        </NavLink>
+                      </div>
+                    </div>
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          </div>
+        </div>
       </div>
     </>
   );
