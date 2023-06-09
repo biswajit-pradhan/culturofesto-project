@@ -90,94 +90,106 @@ const SignUp = () => {
       <NavLink to="#" className="btn" onClick={handleBack}>
         🔙
       </NavLink>
-      <div>
-        <div id="signup">
-          <div className="container">
-            <div
-              id="signup-row"
-              className="row justify-content-center align-items-center"
-            >
-              <div id="signup-column" className="col-md-6">
-                <div id="signup-box" className="col-md-12">
-                  <h3 className="text-center text-info">Sign Up</h3>
-                  <section>
-                    <div className="form-group">
-                      <label htmlFor="name" className="text-info">
-                        Name:
+      <div className="page_container">
+        <div className="event-booking-container">
+          <div id="signup">
+            <div className="container">
+              <div
+                id="signup-row"
+                className="row justify-content-center align-items-center"
+              >
+                <div id="signup-column" className="col-md-6">
+                  <div id="signup-box" className="col-md-12">
+                    <h3 className="text-center text-info homepage_upcoming_title">
+                      Sign Up
+                    </h3>
+                    <section>
+                      <div className="form-group">
+                        <label htmlFor="name" className="text-info">
+                          Name:
+                        </label>
+                        <br />
+                        <input
+                          type="text"
+                          name="userName"
+                          id="name"
+                          className="form-control"
+                          value={userSignUp.userName}
+                          onChange={changeHandler}
+                        />
+                        <span style={{ color: "red" }}>
+                          {errors["userName"]}
+                        </span>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="username" className="text-info">
+                          Email:
+                        </label>
+                        <br />
+                        <input
+                          type="text"
+                          name="emailId"
+                          id="username"
+                          className="form-control"
+                          value={userSignUp.emailId}
+                          onChange={changeHandler}
+                        />
+                        <span style={{ color: "red" }}>
+                          {errors["emailId"]}
+                        </span>
+                      </div>
+                      <label htmlFor="userrole" className="text-info">
+                        Select User Type:
                       </label>
                       <br />
-                      <input
-                        type="text"
-                        name="userName"
-                        id="name"
+                      <select
                         className="form-control"
-                        value={userSignUp.userName}
+                        name="userrole"
+                        value={userSignUp.userrole}
                         onChange={changeHandler}
-                      />
-                      <span style={{ color: "red" }}>{errors["userName"]}</span>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="username" className="text-info">
-                        Email:
-                      </label>
-                      <br />
-                      <input
-                        type="text"
-                        name="emailId"
-                        id="username"
-                        className="form-control"
-                        value={userSignUp.emailId}
-                        onChange={changeHandler}
-                      />
-                      <span style={{ color: "red" }}>{errors["emailId"]}</span>
-                    </div>
-                    <label htmlFor="userrole" className="text-info">
-                      Select User Type:
-                    </label>
-                    <br />
-                    <select
-                      className="form-control"
-                      name="userrole"
-                      value={userSignUp.userrole}
-                      onChange={changeHandler}
-                    >
-                      <option key={0} value="">
-                        --SELECT USER--
-                      </option>
-                      <option key={1} value="Admin">
-                        Admin
-                      </option>
+                      >
+                        <option key={0} value="">
+                          --SELECT USER--
+                        </option>
+                        <option key={1} value="Admin">
+                          Admin
+                        </option>
 
-                      <option key={2} value="User">
-                        User
-                      </option>
-                    </select>
-                    <div className="form-group">
-                      <label htmlFor="password" className="text-info">
-                        Password:
-                      </label>
-                      <br />
-                      <input
-                        type="text"
-                        name="password"
-                        id="password"
-                        className="form-control"
-                        value={userSignUp.password}
-                        onChange={changeHandler}
-                      />
-                      <span style={{ color: "red" }}>{errors["password"]}</span>
-                    </div>
-                    <span style={{ color: "green" }}>{msg}</span> <br />
-                    <div className="form-group">
-                      <br />
-                      <input
-                        className="btn btn-primary btn-lg"
-                        type="submit"
-                        value="SignUp"
-                        onClick={onSignUp}
-                      />
-                    </div>
-                  </section>
+                        <option key={2} value="User">
+                          User
+                        </option>
+                      </select>
+                      <div className="form-group">
+                        <label htmlFor="password" className="text-info">
+                          Password:
+                        </label>
+                        <br />
+                        <input
+                          type="text"
+                          name="password"
+                          id="password"
+                          className="form-control"
+                          value={userSignUp.password}
+                          onChange={changeHandler}
+                        />
+                        <span style={{ color: "red" }}>
+                          {errors["password"]}
+                        </span>
+                      </div>
+                      <span style={{ color: "green" }}>{msg}</span> <br />
+                      <div className="form-group">
+                        <br />
+                        <button
+                          className="btn btn-primary btn-lg"
+                          type="submit"
+                          value="SignUp"
+                          onClick={onSignUp}
+                        >
+                          Sign Up
+                        </button>
+                      </div>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>

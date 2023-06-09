@@ -44,6 +44,7 @@ const eventData = [
 const EventDetailsPage = () => {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
+
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
@@ -52,7 +53,6 @@ const EventDetailsPage = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        // Simulating setting event details from eventData
         const eventDetails = eventData.find(
           (event) => event.eventId === parseInt(eventId)
         );
@@ -66,7 +66,8 @@ const EventDetailsPage = () => {
   }, [eventId]);
 
   const handleBookTicket = () => {
-    console.log("Book ticket clicked!");
+    console.log(event.eventId);
+    navigate("/event-booking");
   };
 
   if (!event) {
@@ -75,18 +76,36 @@ const EventDetailsPage = () => {
 
   return (
     <>
-      <NavLink to="#" onClick={handleBack} className="btn">
-        🔙
-      </NavLink>
       <div>
-        <h1>{event.eventName}</h1>
-        <p>Event ID: {event.eventId}</p>
-        <p>Event Capacity: {event.eventCapacity}</p>
-      </div>
+        <NavLink to="#" onClick={handleBack} className="btn back-link">
+          <span className="back-link-icon">🔙</span>
+        </NavLink>
+        <h1 className="homepage_upcoming_title">Event Details</h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "100%",
+            paddingBottom: "200px",
+          }}
+        >
+          <div className="navlink_event_details">
+            <div className="event_details_data">
+              <h1>{event.eventName}</h1>
+              <p>Event ID: {event.eventId}</p>
+              <p>Hurry only {event.eventCapacity} tickets remaining...</p>
+            </div>
 
-      <button className="btn btn-primary" onClick={handleBookTicket}>
-        Book Ticket
-      </button>
+            <NavLink
+              className="btn btn-primary nav_link"
+              onClick={handleBookTicket}
+            >
+              Book Ticket
+            </NavLink>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

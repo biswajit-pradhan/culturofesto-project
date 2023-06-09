@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   const isLoggedIn = true; // Placeholder variable, replace with actual login status
@@ -74,13 +74,6 @@ const HomePage = () => {
       details: "Image 3 Details",
     },
     // Add more images and details as needed
-  ];
-
-  const socialMediaLinks = [
-    { name: "Facebook", url: "https://www.facebook.com/example" },
-    { name: "Twitter", url: "https://www.twitter.com/example" },
-    { name: "Instagram", url: "https://www.instagram.com/example" },
-    // Add more social media links as needed
   ];
 
   const intervalTime = 2000; // Time interval between image scrolls (in milliseconds)
@@ -158,7 +151,7 @@ const HomePage = () => {
       </section>
 
       <section className="scroll-section flex-grow-1">
-        <h2>Past Events</h2>
+        <h2 className="homepage_upcoming_title">Past Events</h2>
         <div className="carousel-container">
           <div className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
@@ -169,15 +162,30 @@ const HomePage = () => {
                     index === currentIndex ? "active" : ""
                   }`}
                 >
-                  <img
-                    src={image.src}
-                    className={`d-block w-100 ${
-                      index === currentIndex ? "current" : "next"
-                    }`}
-                    alt={image.alt}
-                  />
-                  <div className="carousel-caption">
-                    <p>{image.details}</p>
+                  <div
+                    className="card"
+                    style={{
+                      margin: "10px",
+                      boxShadow: "0 0 6px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    <img
+                      src={image.src}
+                      className={`card-img-top ${
+                        index === currentIndex ? "current" : "next"
+                      }`}
+                      alt={image.alt}
+                      style={{
+                        width: "100%",
+                        height: "500px",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div className="card-body" style={{ padding: "10px" }}>
+                      <p style={{ textAlign: "center" }} className="card-text">
+                        {image.details}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -209,58 +217,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <br />
-      <br />
-      <footer className="footer">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <h4>About Us</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu
-                felis non tortor fermentum fringilla.
-              </p>
-            </div>
-            <div className="col-md-3">
-              <h4>Quick Links</h4>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">Services</a>
-                </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3">
-              <h4>Follow Us</h4>
-              <ul className="list-unstyled social-media-links">
-                {socialMediaLinks.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <hr />
-          <div className="text-center">
-            <p>&copy; 2023 Your Website. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
