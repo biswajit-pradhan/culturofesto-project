@@ -10,6 +10,9 @@ import Navbar from "./Components/Navbar";
 import AdminCreateEvent from "./Components/AdminCreateEvent";
 import UserDashboardPage from "./Components/UserDashboardPage";
 import EventDetailsPage from "./Components/EventDetailsPage";
+import PaymentPage from "./Components/PaymentPage";
+import Footer from "./Components/Footer";
+import EventBookingPage from "./Components/EventBookingPage";
 
 function App() {
   return (
@@ -29,7 +32,10 @@ function App() {
           />
           <Route path="/event-create" element={<AdminCreateEvent />} />
           <Route path="/event-edit" element={<AdminEventEditPage />} />
+          <Route path="/payment-page" element={<PaymentPage />} />
+          <Route path="/event-booking" element={<EventBookingPage />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
     

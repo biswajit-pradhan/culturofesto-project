@@ -69,63 +69,83 @@ function Login() {
       <NavLink to="#" className="btn" onClick={handleBack}>
         🔙
       </NavLink>
-      <div id="login">
-        <h3 className="text-center text-white pt-5">Login Form</h3>
-        <div className="container">
-          <div
-            id="login-row"
-            className="row justify-content-center align-items-center"
-          >
-            <div id="login-column" className="col-md-6">
-              <div id="login-box" className="col-md-12">
-                <h3 className="text-center text-info">Login</h3>
-                <span style={{ color: "red" }}>{msg}</span> <br />
-                <div className="form-group">
-                  <label htmlFor="userNSame" className="text-info">
-                    Email:
-                  </label>
-                  <br />
-                  <input
-                    className="form-control"
-                    placeholder="userName"
-                    name="userName"
-                    value={user.userName}
-                    onChange={changeHandler}
-                  />
-                  <span style={{ color: "red" }}>{errors["userName"]}</span>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password" className="text-info">
-                    Password:
-                  </label>
-                  <br />
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    name="password"
-                    value={user.password}
-                    onChange={changeHandler}
-                  />
-                  <span style={{ color: "red" }}>{errors["password"]}</span>
-                </div>
-                <div className="form-group">
-                  <br />
-                  <button className="btn btn-info btn-md" onClick={loginUser}>
-                    Login
-                  </button>
-                  <span>
-                    &nbsp;&nbsp;
-                    <NavLink to="/signup" className="text-info">
-                      Register Here
-                    </NavLink>
-                  </span>
+      <div className="page_container">
+        <div className="event-booking-container">
+          <div id="login">
+            <div className="container">
+              <div
+                id="login-row"
+                className="row justify-content-center align-items-center"
+              >
+                <div id="login-column" className="col-md-6">
+                  <div id="login-box" className="col-md-12">
+                    <h3 className="text-center text-info homepage_upcoming_title">
+                      Log in
+                    </h3>
+                    <span style={{ color: "red" }}>{msg}</span> <br />
+                    <div className="form-group">
+                      <label htmlFor="userName" className="text-info">
+                        Email:
+                      </label>
+                      <br />
+                      <input
+                        className="form-control"
+                        placeholder="Enetr Username"
+                        name="userName"
+                        value={user.userName}
+                        onChange={changeHandler}
+                      />
+                      <span style={{ color: "red" }}>{errors["userName"]}</span>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password" className="text-info">
+                        Password:
+                      </label>
+                      <br />
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enetr Password"
+                        name="password"
+                        value={user.password}
+                        onChange={changeHandler}
+                      />
+                      <span style={{ color: "red" }}>{errors["password"]}</span>
+                    </div>
+                    <div className="form-group">
+                      <br />
+                      <div
+                        style={{ alignItems: "center", textAlign: "center" }}
+                      >
+                        <button
+                          className="btn btn-info btn-md"
+                          onClick={loginUser}
+                        >
+                          Login
+                        </button>
+                        <br />
+                        <br />
+                        <NavLink
+                          to="/signup"
+                          className="text-info"
+                          style={{ textDecoration: "none" }}
+                        >
+                          Dont have a account, Register Here!!
+                        </NavLink>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }
