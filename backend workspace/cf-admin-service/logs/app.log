@@ -1,0 +1,179 @@
+2023-06-11 00:17:39,578 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 11720 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:17:39,596 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:17:39,597 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:17:49,258 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 10.438 seconds (JVM running for 13.625)
+2023-06-11 00:17:49,881 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:17:49,889 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:17:49,987 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:17:49,988 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:17:50,236 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:17:50,237 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:17:50,264 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:17:50,265 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:17:50,291 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:17:50,292 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:17:50,327 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:17:50,401 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:17:50,441 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:17:50,555 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:17:50,556 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:17:50,556 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:17:50,557 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:18:51,581 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 14664 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:18:51,587 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:18:51,589 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:19:00,400 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 9.559 seconds (JVM running for 12.841)
+2023-06-11 00:19:00,894 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:19:00,900 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:19:00,977 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:19:00,978 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:19:01,151 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:19:01,152 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:19:01,179 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:19:01,180 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:19:01,199 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:19:01,200 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:19:01,218 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:19:01,260 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:19:01,294 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:19:01,399 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:19:01,399 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:19:01,400 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:19:01,401 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:28:50,422 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:28:50,434 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:28:50,438 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:28:50,439 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:31:22,730 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:31:22,747 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:31:22,781 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
+2023-06-11 00:31:22,781 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:31:22,784 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:31:22,786 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
+2023-06-11 00:31:22,799 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
+2023-06-11 00:31:22,799 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
+2023-06-11 00:31:53,048 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 3616 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:31:53,054 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:31:53,055 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:32:04,414 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 12.159 seconds (JVM running for 15.638)
+2023-06-11 00:32:05,009 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:32:05,016 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:32:05,101 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:32:05,105 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:32:05,342 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:32:05,343 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:32:05,370 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:32:05,371 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:32:05,400 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:32:05,405 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:32:05,433 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:32:05,483 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:32:05,522 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:32:05,617 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:32:05,617 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:32:05,632 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
+2023-06-11 00:32:05,635 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:32:05,635 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:32:05,638 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
+2023-06-11 00:32:05,644 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
+2023-06-11 00:32:05,648 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
+2023-06-11 00:39:01,258 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 21568 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:39:01,266 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:39:01,272 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:39:11,020 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 10.496 seconds (JVM running for 13.928)
+2023-06-11 00:39:11,710 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:39:11,718 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:39:11,812 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:39:11,813 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:39:12,048 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:39:12,048 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:39:12,077 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:39:12,078 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:39:12,104 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:39:12,105 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:39:12,137 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:39:12,195 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:39:12,241 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:39:12,366 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:39:12,366 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:39:12,397 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
+2023-06-11 00:39:12,400 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:39:12,401 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:39:12,406 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
+2023-06-11 00:39:12,419 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
+2023-06-11 00:39:12,423 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
+2023-06-11 00:40:17,455 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 7520 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:40:17,462 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:40:17,463 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:40:27,206 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 10.507 seconds (JVM running for 13.945)
+2023-06-11 00:40:27,815 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:40:27,823 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:40:27,931 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:40:27,931 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:40:28,260 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:40:28,262 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:40:28,295 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:40:28,296 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:40:28,334 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:40:28,335 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:40:28,371 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:40:28,429 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:40:28,490 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:40:28,635 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:40:28,637 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:40:28,670 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
+2023-06-11 00:40:28,676 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:40:28,677 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:40:28,680 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
+2023-06-11 00:40:28,693 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
+2023-06-11 00:40:28,700 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
+2023-06-11 00:41:06,335 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 22108 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:41:06,344 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:41:06,346 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:41:17,812 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 12.161 seconds (JVM running for 15.56)
+2023-06-11 00:41:18,432 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:18,441 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:41:18,537 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:18,538 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:41:18,746 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:18,747 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:41:18,768 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:18,769 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:41:18,797 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:18,798 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:41:18,823 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:18,879 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:18,923 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:19,038 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:41:19,039 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:41:19,062 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
+2023-06-11 00:41:19,066 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:41:19,066 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:41:19,073 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
+2023-06-11 00:41:19,085 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
+2023-06-11 00:41:19,089 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
+2023-06-11 00:41:45,450 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Starting CfAdminServiceApplicationTests using Java 17.0.7 on inlen8520086507 with PID 9456 (started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-admin-service)
+2023-06-11 00:41:45,456 [DEBUG] com.adminservice.CfAdminServiceApplicationTests [main] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-11 00:41:45,458 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] No active profile set, falling back to 1 default profile: "default"
+2023-06-11 00:41:56,044 [INFO] com.adminservice.CfAdminServiceApplicationTests [main] Started CfAdminServiceApplicationTests in 11.34 seconds (JVM running for 14.775)
+2023-06-11 00:41:56,705 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:56,712 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: Could not find any event
+2023-06-11 00:41:56,790 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:56,790 [WARN] com.adminservice.controller.EventController [main] NoEventsFoundException occurred: No events are there in the database
+2023-06-11 00:41:57,031 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:57,032 [TRACE] com.adminservice.controller.EventController [main] Fetching event image by eventId: 1
+2023-06-11 00:41:57,059 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:57,065 [ERROR] com.adminservice.controller.EventController [main] Exception occurred: An error occurred
+2023-06-11 00:41:57,100 [TRACE] com.adminservice.controller.EventController [main] Fetching event by eventId: 1
+2023-06-11 00:41:57,101 [WARN] com.adminservice.controller.EventController [main] EventNotFoundException occurred: An error occurred
+2023-06-11 00:41:57,132 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:57,179 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:57,239 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
+2023-06-11 00:41:57,341 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:41:57,342 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:41:57,365 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
+2023-06-11 00:41:57,370 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
+2023-06-11 00:41:57,371 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
+2023-06-11 00:41:57,375 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
+2023-06-11 00:41:57,391 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
+2023-06-11 00:41:57,397 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
