@@ -15,4 +15,6 @@ public interface EventService {
 	public Object getEventByEventId(Long eventId);
 
 	public Object updateEvent(Long eventIdToUpdate, Event event, MultipartFile eventImage);
+	
+	public Object deleteEventById(Long eventIdToDelete);
 }

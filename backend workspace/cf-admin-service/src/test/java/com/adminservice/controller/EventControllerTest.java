@@ -3,14 +3,8 @@ package com.adminservice.controller;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.adminservice.entity.Event;
-import com.adminservice.exceptions.EventNotFoundException;
-import com.adminservice.exceptions.NoEventsFoundException;
-import com.adminservice.serviceimpl.EventServiceImpl;
-
 import java.sql.Date;
 import java.sql.Time;
-
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -25,7 +19,11 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.multipart.MultipartFile;
+
+import com.adminservice.entity.Event;
+import com.adminservice.exceptions.EventNotFoundException;
+import com.adminservice.exceptions.NoEventsFoundException;
+import com.adminservice.serviceimpl.EventServiceImpl;
 
 @ContextConfiguration(classes = {EventController.class})
 @ExtendWith(SpringExtension.class)
@@ -35,6 +33,20 @@ class EventControllerTest {
 
     @MockBean
     private EventServiceImpl eventServiceImpl;
+
+
+    @Test
+    void testDeleteEventById() throws Exception {
+        when(eventServiceImpl.deleteEventById(Mockito.<Long>any())).thenReturn("Delete Event By Id");
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
+                .put("/api/admin/event/deleteevent/{eventIdToDelete}", 1L);
+        MockMvcBuilders.standaloneSetup(eventController)
+                .build()
+                .perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=ISO-8859-1"))
+                .andExpect(MockMvcResultMatchers.content().string("Event deleted successfully"));
+    }
 
     @Test
     void testAddEvent() throws Exception {
@@ -106,7 +118,7 @@ class EventControllerTest {
                                         + ".0,\"lunchPrice\":10.0,\"dinnerPrice\":10.0,\"deleteStatus\":true,\"eventImage\":\"QQFBAUEBQQE=\"}]"));
     }
 
- 
+
     @Test
     void testGetAllEvents3() throws Exception {
         Time eventCloseTime = mock(Time.class);

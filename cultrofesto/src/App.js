@@ -31,7 +31,7 @@ function App() {
             element={<EventDetailsPage />}
           />
           <Route path="/event-create" element={<AdminCreateEvent />} />
-          <Route path="/event-edit" element={<AdminEventEditPage />} />
+          <Route path="/event-edit/:eventId" element={<AdminEventEditPage />} />
           <Route path="/payment-page" element={<PaymentPage />} />
           <Route path="/event-booking" element={<EventBookingPage />} />
         </Routes>

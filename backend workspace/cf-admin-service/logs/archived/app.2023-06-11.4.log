@@ -1,0 +1,40 @@
+2023-06-11 10:52:04,924 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-9] Fetching all events
+2023-06-11 10:52:04,940 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-9] Returning 2 events
+2023-06-11 10:52:28,260 [TRACE] com.adminservice.controller.EventController [http-nio-9001-exec-2] Fetching all events
+2023-06-11 10:52:28,260 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-2] Fetching all events
+2023-06-11 10:52:28,260 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-2] Returning 2 events
+2023-06-11 10:52:36,966 [TRACE] com.adminservice.controller.EventController [http-nio-9001-exec-3] Fetching all events
+2023-06-11 10:52:36,966 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Fetching all events
+2023-06-11 10:52:36,981 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Returning 2 events
+2023-06-11 10:52:49,967 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-6] Deleting event with eventId: 43
+2023-06-11 10:52:49,967 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-6] Deleting event with ID: 43
+2023-06-11 10:52:49,982 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-6] Event deleted successfully
+2023-06-11 10:52:50,315 [TRACE] com.adminservice.controller.EventController [http-nio-9001-exec-7] Fetching all events
+2023-06-11 10:52:50,315 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-7] Fetching all events
+2023-06-11 10:52:50,315 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-7] Returning 1 events
+2023-06-11 10:52:53,225 [TRACE] com.adminservice.controller.EventController [http-nio-9001-exec-10] Fetching all events
+2023-06-11 10:52:53,226 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-10] Fetching all events
+2023-06-11 10:52:53,238 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-10] Returning 1 events
+2023-06-11 10:53:29,877 [TRACE] com.adminservice.controller.EventController [http-nio-9001-exec-1] Fetching all events
+2023-06-11 10:53:29,877 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-1] Fetching all events
+2023-06-11 10:53:29,887 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-1] Returning 1 events
+2023-06-11 10:54:18,704 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-5] Updating event with eventId: 42
+2023-06-11 10:54:18,717 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-5] Updating event with ID: 42
+2023-06-11 10:54:18,718 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-5] Fetching event with ID: 42
+2023-06-11 10:54:18,723 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-5] Event found with ID: 42
+2023-06-11 10:54:18,753 [ERROR] com.adminservice.controller.EventController [http-nio-9001-exec-5] Exception occurred while updating event: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction
+2023-06-11 10:54:55,782 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-9] Updating event with eventId: 42
+2023-06-11 10:54:55,784 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-9] Updating event with ID: 42
+2023-06-11 10:54:55,784 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-9] Fetching event with ID: 42
+2023-06-11 10:54:55,789 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-9] Event found with ID: 42
+2023-06-11 10:54:55,797 [ERROR] com.adminservice.controller.EventController [http-nio-9001-exec-9] Exception occurred while updating event: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction
+2023-06-11 10:55:32,021 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-3] Updating event with eventId: 42
+2023-06-11 10:55:32,023 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Updating event with ID: 42
+2023-06-11 10:55:32,023 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Fetching event with ID: 42
+2023-06-11 10:55:32,029 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Event found with ID: 42
+2023-06-11 10:55:32,045 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Event data and image updated successfully
+2023-06-11 10:55:43,669 [TRACE] com.adminservice.controller.EventController [http-nio-9001-exec-6] Fetching all events
+2023-06-11 10:55:43,669 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-6] Fetching all events
+2023-06-11 10:55:43,680 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-6] Returning 2 events
+2023-06-11 10:56:08,690 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-7] Updating event with eventId: 43
+2023-06-11 10:56:08,692 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-7] Updating event with ID: 43
