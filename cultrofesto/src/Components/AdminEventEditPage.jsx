@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 const eventData = [
   {
     eventName: "Event 1",
+    eventDate: "2023-06-15",
     registrationOpenDate: "2023-06-01",
     registrationCloseDate: "2023-06-10",
     eventStartTime: "10:00",
@@ -22,6 +23,9 @@ const AdminEventEditPage = () => {
   const [registrationOpenDate, setRegistrationOpenDate] = useState(
     eventData[0].registrationOpenDate
   );
+
+  const [eventDate, setEventDate] = useState(eventData[0].eventDate);
+
   const [registrationCloseDate, setRegistrationCloseDate] = useState(
     eventData[0].registrationCloseDate
   );
@@ -46,6 +50,10 @@ const AdminEventEditPage = () => {
 
   const handleEventNameChange = (e) => {
     setEventName(e.target.value);
+  };
+
+  const handleEventDateChange = (e) => {
+    setEventDate(e.target.value);
   };
 
   const handleRegistrationOpenDateChange = (e) => {
@@ -116,6 +124,15 @@ const AdminEventEditPage = () => {
               className="form-control"
               value={eventName}
               onChange={handleEventNameChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Event Date:</label>
+            <input
+              type="date"
+              className="form-control"
+              value={eventDate}
+              onChange={handleEventDateChange}
             />
           </div>
 

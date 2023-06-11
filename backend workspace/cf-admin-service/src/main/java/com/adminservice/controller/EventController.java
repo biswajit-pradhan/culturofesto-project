@@ -30,81 +30,89 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/api/admin/event")
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "*" })
 public class EventController {
 
-    private static final Logger logger = LoggerFactory.getLogger(EventController.class);
+	private static final Logger logger = LoggerFactory.getLogger(EventController.class);
 
-    @Autowired
-    private EventServiceImpl eventService;
+	@Autowired
+	private EventServiceImpl eventService;
 
-    @GetMapping("/eventlist")
-    public ResponseEntity<?> getAllEvents() {
-        try {
-            logger.trace("Fetching all events");
-            List<Event> events = this.eventService.getAllEvents();
-            if (events.isEmpty()) {
-                throw new NoEventsFoundException("No events are there in the database");
-            }
-            return ResponseEntity.status(HttpStatus.OK).body(events);
-        } catch (NoEventsFoundException e) {
-            logger.warn("NoEventsFoundException occurred: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (Exception e) {
-            logger.error("Exception occurred: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
-        }
-    }
+	@PutMapping("/deleteevent/{eventIdToDelete}")
+	public ResponseEntity<?> deleteEventById(@PathVariable Long eventIdToDelete) {
+		logger.debug("Deleting event with eventId: {}", eventIdToDelete);
+		eventService.deleteEventById(eventIdToDelete);
+		return ResponseEntity.status(HttpStatus.OK).body("Event deleted successfully");
+	}
 
-    @PostMapping(value = "/newevent", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> addEvent(@RequestPart("event") String eventData,
-                                      @RequestPart("eventImage") MultipartFile eventImage) throws JsonMappingException, JsonProcessingException {
-        try {
-            logger.debug("Adding a new event");
-            Event event = new ObjectMapper().readValue(eventData, Event.class);
-            return ResponseEntity.status(HttpStatus.OK).body(eventService.addEvent(event, eventImage));
-        } catch (Exception e) {
-            logger.error("Exception occurred while adding event: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.OK).body("Errors are there in the form data. Check it properly!!");
-        }
-    }
+	@GetMapping("/eventlist")
+	public ResponseEntity<?> getAllEvents() {
+		try {
+			logger.trace("Fetching all events");
+			List<Event> events = this.eventService.getAllEvents();
+			if (events.isEmpty()) {
+				throw new NoEventsFoundException("No events are there in the database");
+			}
+			return ResponseEntity.status(HttpStatus.OK).body(events);
+		} catch (NoEventsFoundException e) {
+			logger.warn("NoEventsFoundException occurred: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+		} catch (Exception e) {
+			logger.error("Exception occurred: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+		}
+	}
 
-    @GetMapping("/placeholder/eventedit/{eventId}/{needImage}")
-    public ResponseEntity<?> getEventByEventId(@PathVariable Long eventId,@PathVariable Long needImage) {
-        try {
-            logger.trace("Fetching event by eventId: {}", eventId);
-            Object event = eventService.getEventByEventId(eventId);
-            if (event instanceof Event) {
-            	if(needImage.equals(0L)) {
-            		return ResponseEntity.status(HttpStatus.OK).body(event);
-            	}
-            	else {
-            		logger.trace("Fetching event image by eventId: {}",eventId);
-            		return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.IMAGE_PNG).body(((Event)event).getEventImage());
-            	}
-                
-            }
-            throw new EventNotFoundException("Could not find any event");
-        } catch (EventNotFoundException e) {
-            logger.warn("EventNotFoundException occurred: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (Exception e) {
-            logger.error("Exception occurred: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
-        }
-    }
+	@PostMapping(value = "/newevent", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<?> addEvent(@RequestPart("event") String eventData,
+			@RequestPart("eventImage") MultipartFile eventImage) throws JsonMappingException, JsonProcessingException {
+		try {
+			logger.debug("Adding a new event");
+			Event event = new ObjectMapper().readValue(eventData, Event.class);
+			return ResponseEntity.status(HttpStatus.OK).body(eventService.addEvent(event, eventImage));
+		} catch (Exception e) {
+			logger.error("Exception occurred while adding event: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.OK).body("Errors are there in the form data. Check it properly!!");
+		}
+	}
 
-    @PutMapping(value = "/eventedit/{eventIdToUpdate}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> updateEvent(@PathVariable Long eventIdToUpdate,
-                                         @RequestPart("event") @Valid String eventData, @RequestPart("eventImage") MultipartFile eventImage)
-            throws JsonMappingException, JsonProcessingException {
-        try {
-            logger.debug("Updating event with eventId: {}", eventIdToUpdate);
-            Event event = new ObjectMapper().readValue(eventData, Event.class);
-            return ResponseEntity.status(HttpStatus.OK).body(eventService.updateEvent(eventIdToUpdate, event, eventImage));
-        } catch (Exception e) {
-            logger.error("Exception occurred while updating event: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
-        }
-    }
+	@GetMapping("/placeholder/eventedit/{eventId}/{needImage}")
+	public ResponseEntity<?> getEventByEventId(@PathVariable Long eventId, @PathVariable Long needImage) {
+		try {
+			logger.trace("Fetching event by eventId: {}", eventId);
+			Object event = eventService.getEventByEventId(eventId);
+			if (event instanceof Event) {
+				if (needImage.equals(0L)) {
+					return ResponseEntity.status(HttpStatus.OK).body(event);
+				} else {
+					logger.trace("Fetching event image by eventId: {}", eventId);
+					return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.IMAGE_PNG)
+							.body(((Event) event).getEventImage());
+				}
+
+			}
+			throw new EventNotFoundException("Could not find any event");
+		} catch (EventNotFoundException e) {
+			logger.warn("EventNotFoundException occurred: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+		} catch (Exception e) {
+			logger.error("Exception occurred: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+		}
+	}
+
+	@PutMapping(value = "/eventedit/{eventIdToUpdate}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	public ResponseEntity<?> updateEvent(@PathVariable Long eventIdToUpdate,
+			@RequestPart("event") @Valid String eventData, @RequestPart("eventImage") MultipartFile eventImage)
+			throws JsonMappingException, JsonProcessingException {
+		try {
+			logger.debug("Updating event with eventId: {}", eventIdToUpdate);
+			Event event = new ObjectMapper().readValue(eventData, Event.class);
+			return ResponseEntity.status(HttpStatus.OK)
+					.body(eventService.updateEvent(eventIdToUpdate, event, eventImage));
+		} catch (Exception e) {
+			logger.error("Exception occurred while updating event: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+		}
+	}
 }

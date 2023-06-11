@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.adminservice.entity.Event;
+import com.adminservice.exceptions.EventNotFoundException;
 import com.adminservice.respository.EventRepository;
 import com.adminservice.service.EventService;
 import com.adminservice.utils.ImageUtils;
@@ -111,4 +112,22 @@ public class EventServiceImpl implements EventService {
 			return "Image could not be uploaded";
 		}
 	}
+
+	@Override
+	public Object deleteEventById(Long eventIdToDelete) {
+	    logger.info("Deleting event with ID: {}", eventIdToDelete);
+	    Optional<Event> event = eventRepository.findById(eventIdToDelete);
+	    
+	    if (event.isPresent()) {
+	    	event.get().setDeleteStatus(true);
+	        eventRepository.save(event.get());
+	        logger.info("Event deleted successfully");
+	        return "Event deleted successfully";
+	    } else {
+	        logger.warn("Event not found with ID: {}", eventIdToDelete);
+	        
+	        throw new EventNotFoundException("Event Not Found");
+	    }
+	}
+
 }
