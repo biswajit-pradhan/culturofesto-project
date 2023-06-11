@@ -27,4 +27,5 @@ logging:
   level:
     com:
       adminservice: TRACE
-  file: appLog.log
+  file: 
+     name: appLog.log
