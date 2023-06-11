@@ -1,15 +1,7 @@
-2023-06-11 11:26:15,826 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
-2023-06-11 11:26:15,867 [TRACE] com.adminservice.controller.EventController [main] Fetching all events
-2023-06-11 11:26:15,986 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
-2023-06-11 11:26:15,987 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
-2023-06-11 11:26:16,017 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Deleting event with ID: 1
-2023-06-11 11:26:16,040 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Deleting event with ID: 1
-2023-06-11 11:26:16,045 [WARN] com.adminservice.serviceimpl.EventServiceImpl [main] Event not found with ID: 1
-2023-06-11 11:26:16,065 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
-2023-06-11 11:26:16,065 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
-2023-06-11 11:26:16,066 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
-2023-06-11 11:26:16,071 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
-2023-06-11 11:26:16,084 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
-2023-06-11 11:26:16,085 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
-2023-06-11 11:26:16,094 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Deleting event with ID: 1
-2023-06-11 11:26:16,095 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event deleted successfully
+2023-06-11 18:04:06,592 [INFO] com.adminservice.CfAdminServiceApplication [restartedMain] Started CfAdminServiceApplication in 12.439 seconds (JVM running for 13.579)
+2023-06-11 18:13:14,470 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-3] Adding a new event
+2023-06-11 18:13:14,489 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Adding event: Dasahara
+2023-06-11 18:13:14,640 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-3] Event data and image uploaded successfully
+2023-06-11 18:14:01,048 [DEBUG] com.adminservice.controller.EventController [http-nio-9001-exec-1] Adding a new event
+2023-06-11 18:14:01,052 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-1] Adding event: Diwali
+2023-06-11 18:14:01,065 [INFO] com.adminservice.serviceimpl.EventServiceImpl [http-nio-9001-exec-1] Event data and image uploaded successfully
