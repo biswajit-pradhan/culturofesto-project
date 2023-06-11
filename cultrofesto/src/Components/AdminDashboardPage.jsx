@@ -52,7 +52,7 @@ const AdminDashboardPage = () => {
           <h2 className="admin-event-header">List of Events</h2>
           <div className="card-grid">
             {events.map((event) => (
-              <div key={event.eventId} className="event-item card">
+              <div key={event.id} className="event-item card">
                 <div className="card-body">
                   <h1 className="card-title">{event.eventName}</h1>
                   <p className="card-text">Event ID: {event.id}</p>
