@@ -1,8 +1,1 @@
-2023-06-11 19:51:02,940 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Updating event with ID: 1
-2023-06-11 19:51:02,947 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Fetching event with ID: 1
-2023-06-11 19:51:02,949 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event found with ID: 1
-2023-06-11 19:51:02,953 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image updated successfully
-2023-06-11 19:51:02,964 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Adding event: Event Name
-2023-06-11 19:51:02,964 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event data and image uploaded successfully
-2023-06-11 19:51:02,971 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Deleting event with ID: 1
-2023-06-11 19:51:02,971 [INFO] com.adminservice.serviceimpl.EventServiceImpl [main] Event deleted successfully
+
