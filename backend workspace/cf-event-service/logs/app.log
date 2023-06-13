@@ -1,0 +1,4 @@
+2023-06-13 14:50:03,161 [INFO] com.eventservice.CfEventServiceApplication [restartedMain] Starting CfEventServiceApplication using Java 17.0.7 on inlen8520086507 with PID 11820 (C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-event-service\target\classes started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-event-service)
+2023-06-13 14:50:03,165 [DEBUG] com.eventservice.CfEventServiceApplication [restartedMain] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-13 14:50:03,166 [INFO] com.eventservice.CfEventServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-06-13 14:50:09,121 [INFO] com.eventservice.CfEventServiceApplication [restartedMain] Started CfEventServiceApplication in 6.673 seconds (JVM running for 7.608)
