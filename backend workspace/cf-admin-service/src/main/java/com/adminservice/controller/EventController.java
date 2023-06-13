@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.adminservice.entity.Event;
@@ -37,6 +38,9 @@ public class EventController {
 
 	@Autowired  
 	private EventServiceImpl eventService;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@PutMapping("/deleteevent/{eventIdToDelete}")
 	public ResponseEntity<?> deleteEventById(@PathVariable Long eventIdToDelete) {

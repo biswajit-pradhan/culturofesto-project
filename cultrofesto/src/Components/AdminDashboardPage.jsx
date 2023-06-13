@@ -17,7 +17,9 @@ const AdminDashboardPage = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("/api/admin/event/eventlist");
+      const response = await axios.get(
+        "http://localhost:9001/api/admin/event/eventlist"
+      );
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
@@ -26,7 +28,9 @@ const AdminDashboardPage = () => {
 
   const deleteEvent = async (eventId) => {
     try {
-      await axios.put(`/api/admin/event/deleteevent/${eventId}`);
+      await axios.put(
+        `http://localhost:9001/api/admin/event/deleteevent/${eventId}`
+      );
       // Refresh the events list after successful deletion
       fetchEvents();
     } catch (error) {
@@ -57,7 +61,7 @@ const AdminDashboardPage = () => {
                   <h1 className="card-title">{event.eventName}</h1>
                   <p className="card-text">Event ID: {event.id}</p>
                   <div className="btn-group">
-                    <Link to={`/event-edit/${event.eventId}`}>
+                    <Link to={`/event-edit/${event.id}`}>
                       <button className="btn btn-secondary">Modify</button>
                     </Link>
                     <button
