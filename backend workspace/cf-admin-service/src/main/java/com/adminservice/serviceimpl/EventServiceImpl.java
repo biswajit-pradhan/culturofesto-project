@@ -28,12 +28,12 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<Event> getAllEvents() {
 		logger.info("Fetching all events");
+
 		List<Event> list = eventRepository.findAll();
-		List<Event> filteredList = list.stream()
-				.filter(e -> e.getDeleteStatus().equals(Boolean.FALSE))
+		List<Event> filteredList = list.stream().filter(e -> e.getDeleteStatus().equals(Boolean.FALSE))
 				.collect(Collectors.toList());
-		filteredList.stream()
-				.forEach(e->e.setEventImage(ImageUtils.decompressImage(e.getEventImage())));
+		filteredList.stream().forEach(e -> e.setEventImage(ImageUtils.decompressImage(e.getEventImage())));
+
 		logger.info("Returning {} events", filteredList.size());
 		return filteredList;
 	}
@@ -115,19 +115,19 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public Object deleteEventById(Long eventIdToDelete) {
-	    logger.info("Deleting event with ID: {}", eventIdToDelete);
-	    Optional<Event> event = eventRepository.findById(eventIdToDelete);
-	    
-	    if (event.isPresent()) {
-	    	event.get().setDeleteStatus(true);
-	        eventRepository.save(event.get());
-	        logger.info("Event deleted successfully");
-	        return "Event deleted successfully";
-	    } else {
-	        logger.warn("Event not found with ID: {}", eventIdToDelete);
-	        
-	        throw new EventNotFoundException("Event Not Found");
-	    }
+		logger.info("Deleting event with ID: {}", eventIdToDelete);
+		Optional<Event> event = eventRepository.findById(eventIdToDelete);
+
+		if (event.isPresent()) {
+			event.get().setDeleteStatus(true);
+			eventRepository.save(event.get());
+			logger.info("Event deleted successfully");
+			return "Event deleted successfully";
+		} else {
+			logger.warn("Event not found with ID: {}", eventIdToDelete);
+
+			throw new EventNotFoundException("Event Not Found");
+		}
 	}
 
 }
