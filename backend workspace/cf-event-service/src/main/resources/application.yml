@@ -2,7 +2,7 @@ eureka:
   instance:
     hostname: localhost
 server:
-  port: 9004
+  port: '9004'
 spring:
   datasource:
     password: admin

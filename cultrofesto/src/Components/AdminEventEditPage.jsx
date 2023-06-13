@@ -1,52 +1,62 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-
-const eventData = [
-  {
-    eventName: "Event 1",
-    eventDate: "2023-06-15",
-    registrationOpenDate: "2023-06-01",
-    registrationCloseDate: "2023-06-10",
-    eventStartTime: "10:00",
-    eventCloseTime: "18:00",
-    registrationFee: 50.0,
-    eventCapacity: 100,
-    breakfastPrice: 10.0,
-    lunchPrice: 15.0,
-    dinnerPrice: 20.0,
-    eventImage: null,
-  },
-];
+import { useEffect } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 const AdminEventEditPage = () => {
-  const [eventName, setEventName] = useState(eventData[0].eventName);
+  const { eventId } = useParams();
+  const [event, setEvent] = useState({});
+
+  const formatDate = (timestamp) => {
+    const date = new Date(timestamp);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+
+  const formatDateForUpdate = (timestamp) => {
+    const date = new Date(timestamp);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${year}-${month}-${day}`;
+  };
+
+  const fetchEvent = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:9001/api/admin/event/placeholder/eventedit/${eventId}/0`
+      );
+
+      setEvent(response.data);
+    } catch (error) {
+      console.error("Error fetching event:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvent();
+  }, []);
+
+  const [eventName, setEventName] = useState(event.eventName);
   const [registrationOpenDate, setRegistrationOpenDate] = useState(
-    eventData[0].registrationOpenDate
+    event.registrationOpenDate
   );
 
-  const [eventDate, setEventDate] = useState(eventData[0].eventDate);
+  const [eventDate, setEventDate] = useState(event.eventDate);
 
   const [registrationCloseDate, setRegistrationCloseDate] = useState(
-    eventData[0].registrationCloseDate
+    event.registrationCloseDate
   );
-  const [eventStartTime, setEventStartTime] = useState(
-    eventData[0].eventStartTime
-  );
-  const [eventCloseTime, setEventCloseTime] = useState(
-    eventData[0].eventCloseTime
-  );
-  const [registrationFee, setRegistrationFee] = useState(
-    eventData[0].registrationFee
-  );
-  const [eventCapacity, setEventCapacity] = useState(
-    eventData[0].eventCapacity
-  );
-  const [breakfastPrice, setBreakfastPrice] = useState(
-    eventData[0].breakfastPrice
-  );
-  const [lunchPrice, setLunchPrice] = useState(eventData[0].lunchPrice);
-  const [dinnerPrice, setDinnerPrice] = useState(eventData[0].dinnerPrice);
-  const [eventImage, setEventImage] = useState(eventData[0].eventImage);
+  const [eventStartTime, setEventStartTime] = useState(event.eventStartTime);
+  const [eventCloseTime, setEventCloseTime] = useState(event.eventCloseTime);
+  const [registrationFee, setRegistrationFee] = useState(event.registrationFee);
+  const [eventCapacity, setEventCapacity] = useState(event.eventCapacity);
+  const [breakfastPrice, setBreakfastPrice] = useState(event.breakfastPrice);
+  const [lunchPrice, setLunchPrice] = useState(event.lunchPrice);
+  const [dinnerPrice, setDinnerPrice] = useState(event.dinnerPrice);
+  const [eventImage, setEventImage] = useState(event.eventImage);
 
   const handleEventNameChange = (e) => {
     setEventName(e.target.value);
@@ -73,23 +83,30 @@ const AdminEventEditPage = () => {
   };
 
   const handleRegistrationFeeChange = (e) => {
-    setRegistrationFee(parseFloat(e.target.value));
+    const value = e.target.value;
+    setRegistrationFee(
+      value !== "" ? parseFloat(value) : event.registrationFee
+    );
   };
 
   const handleEventCapacityChange = (e) => {
-    setEventCapacity(parseInt(e.target.value));
+    const value = e.target.value;
+    setEventCapacity(value !== "" ? parseInt(value) : event.eventCapacity);
   };
 
   const handleBreakfastPriceChange = (e) => {
-    setBreakfastPrice(parseFloat(e.target.value));
+    const value = e.target.value;
+    setBreakfastPrice(value !== "" ? parseFloat(value) : event.breakfastPrice);
   };
 
   const handleLunchPriceChange = (e) => {
-    setLunchPrice(parseFloat(e.target.value));
+    const value = e.target.value;
+    setLunchPrice(value !== "" ? parseFloat(value) : event.lunchPrice);
   };
 
   const handleDinnerPriceChange = (e) => {
-    setDinnerPrice(parseFloat(e.target.value));
+    const value = e.target.value;
+    setDinnerPrice(value !== "" ? parseFloat(value) : event.dinnerPrice);
   };
 
   const handleEventImageChange = (e) => {
@@ -101,10 +118,95 @@ const AdminEventEditPage = () => {
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement your form submission logic
+    try {
+      const formData = new FormData();
+      const updatedEvent = {};
+
+      // Handle event name
+      updatedEvent.eventName =
+        eventName !== undefined ? eventName : event.eventName;
+
+      // Handle event date
+      updatedEvent.eventDate =
+        eventDate !== undefined
+          ? eventDate
+          : formatDateForUpdate(event.eventDate);
+
+      // Handle registration open date
+      updatedEvent.registrationOpenDate =
+        registrationOpenDate !== undefined
+          ? registrationOpenDate
+          : formatDateForUpdate(event.registrationOpenDate);
+
+      // Handle registration close date
+      updatedEvent.registrationCloseDate =
+        registrationCloseDate !== undefined
+          ? registrationCloseDate
+          : formatDateForUpdate(event.registrationCloseDate);
+
+      // Handle event start time
+      updatedEvent.eventStartTime =
+        eventStartTime !== undefined ? eventStartTime : event.eventStartTime;
+
+      // Handle event close time
+      updatedEvent.eventCloseTime =
+        eventCloseTime !== undefined ? eventCloseTime : event.eventCloseTime;
+
+      // Handle registration fee
+      updatedEvent.registrationFee =
+        registrationFee !== undefined
+          ? parseFloat(registrationFee)
+          : event.registrationFee;
+
+      // Handle event capacity
+      updatedEvent.eventCapacity =
+        eventCapacity !== undefined
+          ? parseInt(eventCapacity)
+          : event.eventCapacity;
+
+      // Handle breakfast price
+      updatedEvent.breakfastPrice =
+        breakfastPrice !== undefined
+          ? parseFloat(breakfastPrice)
+          : event.breakfastPrice;
+
+      // Handle lunch price
+      updatedEvent.lunchPrice =
+        lunchPrice !== undefined ? parseFloat(lunchPrice) : event.lunchPrice;
+
+      // Handle dinner price
+      updatedEvent.dinnerPrice =
+        dinnerPrice !== undefined ? parseFloat(dinnerPrice) : event.dinnerPrice;
+
+      // Append event data to form data
+      formData.append("event", JSON.stringify(updatedEvent));
+
+      // Handle event image
+      if (eventImage) {
+        formData.append("eventImage", eventImage);
+      } else {
+        formData.append("eventImage", event.eventImage);
+      }
+
+      await axios.put(
+        `http://localhost:9001/api/admin/event/eventedit/${eventId}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Updation Successfull");
+    } catch (error) {
+      console.error("Error updating event:", error);
+      console.log("Some error occured");
+    }
   };
+
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
@@ -120,6 +222,7 @@ const AdminEventEditPage = () => {
           <div className="mb-3">
             <label className="form-label">Event Name:</label>
             <input
+              placeholder={event.eventName}
               type="text"
               className="form-control"
               value={eventName}
@@ -129,7 +232,9 @@ const AdminEventEditPage = () => {
           <div className="mb-3">
             <label className="form-label">Event Date:</label>
             <input
-              type="date"
+              placeholder={event.eventDate ? formatDate(event.eventDate) : ""}
+              type="text"
+              onFocus={(e) => (e.target.type = "date")}
               className="form-control"
               value={eventDate}
               onChange={handleEventDateChange}
@@ -141,7 +246,13 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Registration Open Date:</label>
                 <input
-                  type="date"
+                  placeholder={
+                    event.registrationOpenDate
+                      ? formatDate(event.eventDate)
+                      : ""
+                  }
+                  type="text"
+                  onFocus={(e) => (e.target.type = "date")}
                   className="form-control"
                   value={registrationOpenDate}
                   onChange={handleRegistrationOpenDateChange}
@@ -152,7 +263,13 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Registration Close Date:</label>
                 <input
-                  type="date"
+                  placeholder={
+                    event.registrationCloseDate
+                      ? formatDate(event.eventDate)
+                      : ""
+                  }
+                  type="text"
+                  onFocus={(e) => (e.target.type = "date")}
                   className="form-control"
                   value={registrationCloseDate}
                   onChange={handleRegistrationCloseDateChange}
@@ -166,7 +283,9 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Event Start Time:</label>
                 <input
-                  type="time"
+                  placeholder={event.eventStartTime}
+                  type="text"
+                  onFocus={(e) => (e.target.type = "time")}
                   className="form-control"
                   value={eventStartTime}
                   onChange={handleEventStartTimeChange}
@@ -177,7 +296,9 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Event Close Time:</label>
                 <input
-                  type="time"
+                  placeholder={event.eventCloseTime}
+                  type="text"
+                  onFocus={(e) => (e.target.type = "time")}
                   className="form-control"
                   value={eventCloseTime}
                   onChange={handleEventCloseTimeChange}
@@ -191,6 +312,7 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Registration Fee:</label>
                 <input
+                  placeholder={event.registrationFee}
                   type="number"
                   className="form-control"
                   value={registrationFee}
@@ -202,6 +324,7 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Event Capacity:</label>
                 <input
+                  placeholder={event.eventCapacity}
                   type="number"
                   className="form-control"
                   value={eventCapacity}
@@ -216,6 +339,7 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Breakfast Price:</label>
                 <input
+                  placeholder={event.breakfastPrice}
                   type="number"
                   className="form-control"
                   value={breakfastPrice}
@@ -227,6 +351,7 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Lunch Price:</label>
                 <input
+                  placeholder={event.lunchPrice}
                   type="number"
                   className="form-control"
                   value={lunchPrice}
@@ -238,6 +363,7 @@ const AdminEventEditPage = () => {
               <div className="mb-3">
                 <label className="form-label">Dinner Price:</label>
                 <input
+                  placeholder={event.dinnerPrice}
                   type="number"
                   className="form-control"
                   value={dinnerPrice}
@@ -250,6 +376,7 @@ const AdminEventEditPage = () => {
           <div className="mb-3">
             <label className="form-label">Event Image:</label>
             <input
+              placeholder={event.eventImage}
               type="file"
               accept="image/*"
               className="form-control"
@@ -258,8 +385,13 @@ const AdminEventEditPage = () => {
           </div>
 
           <button type="submit" className="btn btn-primary">
-            Save
+            SAVE CHANGES
           </button>
+          <span>
+            <button className="btn btn-primary" onClick={handleBack}>
+              CANCEL
+            </button>
+          </span>
         </form>
       </div>
     </>

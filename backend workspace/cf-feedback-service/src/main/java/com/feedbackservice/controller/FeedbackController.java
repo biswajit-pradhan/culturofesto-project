@@ -1,0 +1,51 @@
+package com.feedbackservice.controller;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.feedbackservice.service.FeedbackService;
+
+@RestController
+@RequestMapping("/api/user/feedback")
+public class FeedbackController {
+    private static final Logger logger = LoggerFactory.getLogger(FeedbackController.class);
+
+    @Autowired
+    FeedbackService feedbackService;
+
+    // API TO POST FEEDBACK FROM USER TO DATABASE
+    @PostMapping("/post-feedback/{userId}/{eventId}")
+    public ResponseEntity<String> postFeedback(@PathVariable("userId") Long userId,
+                                               @PathVariable("eventId") Long eventId,
+                                               @RequestBody String feedbackText) {
+        try {
+            feedbackService.saveFeedback(userId, eventId, feedbackText);
+            logger.info("Feedback posted successfully. UserId: {}, EventId: {}", userId, eventId);
+            return ResponseEntity.ok("Feedback posted successfully");
+        } catch (Exception e) {
+            logger.error("Failed to post feedback. UserId: {}, EventId: {}", userId, eventId, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to post feedback");
+        }
+    }
+
+    // API TO FETCH FEEDBACK FROM DATABASE
+    @GetMapping("/get-feedback/{userId}/{eventId}")
+    public ResponseEntity<?> getFeedbackByUserIdAndEventId(@PathVariable("userId") Long userId,
+                                                           @PathVariable("eventId") Long eventId) {
+        try {
+            String feedback = feedbackService.getFeedbackByUserIdAndEventId(userId, eventId);
+            if (feedback.isEmpty()) {
+                logger.warn("Feedback not found. UserId: {}, EventId: {}", userId, eventId);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Feedback not found");
+            }
+            logger.info("Feedback fetched successfully. UserId: {}, EventId: {}", userId, eventId);
+            return ResponseEntity.ok(feedback);
+        } catch (Exception e) {
+            logger.error("Failed to fetch feedback. UserId: {}, EventId: {}", userId, eventId, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to fetch feedback");
+        }
+    }
+}
