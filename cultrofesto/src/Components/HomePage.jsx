@@ -26,8 +26,8 @@ const imageUrl = URL.createObjectURL(blob);
     const fetchData = async () => {
       try {
         const [pastEventsResponse, upcomingEventsResponse] = await Promise.all([
-          axios.get("http://localhost:9004/api/event/past"),
-          axios.get("http://localhost:9004/api/event/future")
+          axios.get("/api/event/past"),
+          axios.get("/api/event/future")
         ]);
 
         setPastEvents(pastEventsResponse.data);
@@ -48,18 +48,12 @@ const imageUrl = URL.createObjectURL(blob);
         <div className="flex-grow-1 d-flex align-items-center justify-content-center min-vh-100">
           <form className="form-inline">
             <div className="input-group">
-              <input
-                className="form-control mr-sm-4"
-                type="text"
-                placeholder="Search"
-              />
-              <NavLink to="/search" className="search_button">
+              <NavLink to="/search">
                 <button
-                  className="btn btn-primary"
-                  type="button"
+                  className="search_button"
                   onClick={handleSearchClick}
                 >
-                  Search
+                  Search events
                 </button>
               </NavLink>
             </div>

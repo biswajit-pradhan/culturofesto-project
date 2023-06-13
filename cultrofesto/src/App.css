@@ -261,3 +261,23 @@
 .search-data{
   font-family: "Poppins", sans-serif;
 }
+.search_button {
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background-color: cadetblue;
+  font-weight: bolder;
+  padding: 10px 50px;
+  font-size: 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  box-shadow: 5px 5px black;
+  transition: background-color 0.3s ease; 
+}
+
+.search_button:hover {
+  background-color: #0056b3; 
+  background-color: transparent;
+  font-size: 30px;
+  font-weight: bolder;
+}

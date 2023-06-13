@@ -26,7 +26,7 @@ const AdminEventEditPage = () => {
   const fetchEvent = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:9001/api/admin/event/placeholder/eventedit/${eventId}/0`
+        `/api/admin/event/placeholder/eventedit/${eventId}/0`
       );
 
       setEvent(response.data);

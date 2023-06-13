@@ -18,7 +18,7 @@ const AdminDashboardPage = () => {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:9001/api/admin/event/eventlist"
+        "/api/admin/event/eventlist"
       );
       setEvents(response.data);
     } catch (error) {
@@ -29,7 +29,7 @@ const AdminDashboardPage = () => {
   const deleteEvent = async (eventId) => {
     try {
       await axios.put(
-        `http://localhost:9001/api/admin/event/deleteevent/${eventId}`
+        `/api/admin/event/deleteevent/${eventId}`
       );
       // Refresh the events list after successful deletion
       fetchEvents();
