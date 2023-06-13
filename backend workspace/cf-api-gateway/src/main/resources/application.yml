@@ -13,3 +13,7 @@ spring:
         uri: lb://admin-service
         predicates:
         - Path=/api/admin/**
+      - id: event-service
+        uri: lb://event-service
+        predicates:
+        - Path=/api/event/**
