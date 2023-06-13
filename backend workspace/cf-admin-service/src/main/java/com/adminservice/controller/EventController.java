@@ -38,9 +38,6 @@ public class EventController {
 
 	@Autowired  
 	private EventServiceImpl eventService;
-	
-	@Autowired
-	private RestTemplate restTemplate;
 
 	@PutMapping("/deleteevent/{eventIdToDelete}")
 	public ResponseEntity<?> deleteEventById(@PathVariable Long eventIdToDelete) {
@@ -59,10 +56,14 @@ public class EventController {
 			}
 			return ResponseEntity.status(HttpStatus.OK).body(events);
 		} catch (NoEventsFoundException e) {
-			logger.warn("NoEventsFoundException occurred: {}", e.getMessage());
+			if (logger.isWarnEnabled()) {
+			    logger.warn("NoEventsFoundException occurred: {}", e.getMessage());
+			}
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 		} catch (Exception e) {
-			logger.error("Exception occurred: {}", e.getMessage());
+			if (logger.isErrorEnabled()) {
+				logger.error("Exception occurred: {}", e.getMessage());
+			}			
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
 		}
 	}
@@ -75,7 +76,9 @@ public class EventController {
 			Event event = new ObjectMapper().readValue(eventData, Event.class);
 			return ResponseEntity.status(HttpStatus.OK).body(eventService.addEvent(event, eventImage));
 		} catch (Exception e) {
-			logger.error("Exception occurred while adding event: {}", e.getMessage());
+			if (logger.isErrorEnabled()) {
+				logger.error("Exception occurred while adding event: {}", e.getMessage());
+			}			
 			return ResponseEntity.status(HttpStatus.OK).body("Errors are there in the form data. Check it properly!!");
 		}
 	}
@@ -97,10 +100,14 @@ public class EventController {
 			}
 			throw new EventNotFoundException("Could not find any event");
 		} catch (EventNotFoundException e) {
-			logger.warn("EventNotFoundException occurred: {}", e.getMessage());
+			if (logger.isWarnEnabled()) {
+				logger.warn("EventNotFoundException occurred: {}", e.getMessage());
+			}
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 		} catch (Exception e) {
-			logger.error("Exception occurred: {}", e.getMessage());
+			if (logger.isErrorEnabled()) {
+				logger.error("Exception occurred: {}", e.getMessage());
+			}			
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
 		}
 	}
@@ -115,7 +122,9 @@ public class EventController {
 			return ResponseEntity.status(HttpStatus.OK)
 					.body(eventService.updateEvent(eventIdToUpdate, event, eventImage));
 		} catch (Exception e) {
-			logger.error("Exception occurred while updating event: {}", e.getMessage());
+			if (logger.isErrorEnabled()) {
+			    logger.error("Exception occurred while updating event: {}", e.getMessage());
+			}
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
 		}
 	}
