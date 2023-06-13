@@ -35,7 +35,7 @@ public class EventController {
 
 	private static final Logger logger = LoggerFactory.getLogger(EventController.class);
 
-	@Autowired
+	@Autowired  
 	private EventServiceImpl eventService;
 
 	@PutMapping("/deleteevent/{eventIdToDelete}")
