@@ -1,49 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-
-const events = [
-  {
-    eventId: 1,
-    eventName: "Dasahara",
-    eventCapacity: 5,
-    deleteStatus: false,
-  },
-  {
-    eventId: 2,
-    eventName: "Ratha Yatra",
-    eventCapacity: 5,
-    deleteStatus: false,
-  },
-  {
-    eventId: 3,
-    eventName: "Danda Nrutya",
-    eventCapacity: 5,
-    deleteStatus: false,
-  },
-  {
-    eventId: 4,
-    eventName: "Jatra",
-    eventCapacity: 5,
-    deleteStatus: false,
-  },
-  {
-    eventId: 5,
-    eventName: "Dasahara",
-    eventCapacity: 5,
-    deleteStatus: false,
-  },
-  {
-    eventId: 6,
-    eventName: "Ratha Yatra",
-    eventCapacity: 5,
-    deleteStatus: false,
-  },
-];
+import axios from "axios";
 
 const AdminDashboardPage = () => {
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
+  };
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch the list of events from the backend
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get("/api/admin/event/eventlist");
+      setEvents(response.data);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  const deleteEvent = async (eventId) => {
+    try {
+      await axios.put(`/api/admin/event/deleteevent/${eventId}`);
+      // Refresh the events list after successful deletion
+      fetchEvents();
+    } catch (error) {
+      console.error("Error deleting event:", error);
+    }
   };
 
   return (
@@ -53,7 +41,7 @@ const AdminDashboardPage = () => {
       </NavLink>
       <div className="admin_container">
         <div className="admin-header">
-          <h1>Admin DashBoard</h1>
+          <h1>Admin Dashboard</h1>
         </div>
         <div className="admin-create-event-button">
           <Link to="/event-create">
@@ -64,15 +52,20 @@ const AdminDashboardPage = () => {
           <h2 className="admin-event-header">List of Events</h2>
           <div className="card-grid">
             {events.map((event) => (
-              <div key={event.eventId} className="event-item card">
+              <div key={event.id} className="event-item card">
                 <div className="card-body">
                   <h1 className="card-title">{event.eventName}</h1>
-                  <p className="card-text">Event ID: {event.eventId}</p>
+                  <p className="card-text">Event ID: {event.id}</p>
                   <div className="btn-group">
-                    <Link to="/event-edit">
+                    <Link to={`/event-edit/${event.eventId}`}>
                       <button className="btn btn-secondary">Modify</button>
                     </Link>
-                    <button className="btn btn-danger">Delete</button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deleteEvent(event.id)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>

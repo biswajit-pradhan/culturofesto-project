@@ -1,0 +1,38 @@
+2023-06-13 10:03:25,319 [INFO] com.eventservice.CfEventServiceApplication [restartedMain] Starting CfEventServiceApplication using Java 17.0.7 on INLEN8520086471 with PID 3252 (C:\Users\PRANKATE\OneDrive - Capgemini\Desktop\culturofesto-project\backend workspace\cf-event-service\target\classes started by prankate in C:\Users\PRANKATE\OneDrive - Capgemini\Desktop\culturofesto-project\backend workspace\cf-event-service)
+2023-06-13 10:03:25,328 [DEBUG] com.eventservice.CfEventServiceApplication [restartedMain] Running with Spring Boot v2.7.12, Spring v5.3.27
+2023-06-13 10:03:25,331 [INFO] com.eventservice.CfEventServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-06-13 10:03:33,891 [INFO] com.eventservice.CfEventServiceApplication [restartedMain] Started CfEventServiceApplication in 9.228 seconds (JVM running for 10.063)
+2023-06-13 10:03:40,004 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Fetching future events
+2023-06-13 10:03:40,177 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Returning 1 future events
+2023-06-13 10:03:50,713 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-3] Fetching past events
+2023-06-13 10:03:50,727 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-3] Returning 1 past events
+2023-06-13 10:04:39,974 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Fetching past events
+2023-06-13 10:04:39,992 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Returning 1 past events
+2023-06-13 10:04:58,594 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-5] Fetching future events
+2023-06-13 10:04:58,603 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-5] Returning 1 future events
+2023-06-13 10:06:01,888 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Fetching future events
+2023-06-13 10:06:01,888 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Fetching past events
+2023-06-13 10:06:01,896 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Returning 1 past events
+2023-06-13 10:06:01,896 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Returning 1 future events
+2023-06-13 10:53:46,137 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Fetching past events
+2023-06-13 10:53:46,137 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Fetching future events
+2023-06-13 10:53:46,177 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Returning 1 future events
+2023-06-13 10:53:46,177 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Returning 1 past events
+2023-06-13 10:53:50,283 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Fetching future events
+2023-06-13 10:53:50,283 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-3] Fetching past events
+2023-06-13 10:53:50,291 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Returning 1 future events
+2023-06-13 10:53:50,293 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-3] Returning 1 past events
+2023-06-13 10:54:18,037 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-5] Fetching past events
+2023-06-13 10:54:18,040 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Fetching future events
+2023-06-13 10:54:18,047 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-5] Returning 1 past events
+2023-06-13 10:54:18,049 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Returning 1 future events
+2023-06-13 10:54:22,148 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Fetching past events
+2023-06-13 10:54:22,152 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Fetching future events
+2023-06-13 10:54:22,159 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Returning 1 past events
+2023-06-13 10:54:22,167 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Returning 1 future events
+2023-06-13 11:02:32,198 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Fetching past events
+2023-06-13 11:02:32,198 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Fetching future events
+2023-06-13 11:02:32,207 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Returning 1 past events
+2023-06-13 11:02:32,207 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Returning 1 future events
+2023-06-13 11:05:03,463 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Fetching future events
+2023-06-13 11:05:03,488 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Returning 1 future events
