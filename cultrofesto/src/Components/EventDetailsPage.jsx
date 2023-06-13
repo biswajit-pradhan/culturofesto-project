@@ -15,11 +15,11 @@ const EventDetailsPage = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const eventResponse = await fetch(`http://localhost:9004/api/event/${eventId}/0`);
+        const eventResponse = await fetch(`/api/event/${eventId}/0`);
         const eventData = await eventResponse.json();
         setEvent(eventData);
 
-        const imageResponse = await fetch(`http://localhost:9004/api/event/${eventId}/1`);
+        const imageResponse = await fetch(`/api/event/${eventId}/1`);
         if (imageResponse.ok) {
           const imageBlob = await imageResponse.blob();
           setEventImage(URL.createObjectURL(imageBlob));
