@@ -1,3 +1,12 @@
+logging:
+  pattern:
+    file: '%d [%level] %c{1.} [%t] %m%n'
+    console: '%d [%level] %c{1.} [%t] %m%n'
+  level:
+    com:
+      adminservice: TRACE
+  file:
+    name: appLog.log
 eureka:
   instance:
     hostname: localhost

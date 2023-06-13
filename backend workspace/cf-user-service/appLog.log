@@ -980,3 +980,49 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2023-06-13 11:11:14,979 [INFO] com.netflix.discovery.DiscoveryClient [RMI TCP Connection(41)-127.0.0.1] Unregistering ...
 2023-06-13 11:11:14,992 [INFO] com.netflix.discovery.DiscoveryClient [RMI TCP Connection(41)-127.0.0.1] DiscoveryClient_USER-SERVICE/lin80034623.corp.capgemini.com:user-service:9005 - deregister  status: 200
 2023-06-13 11:11:15,004 [INFO] com.netflix.discovery.DiscoveryClient [RMI TCP Connection(41)-127.0.0.1] Completed shut down of DiscoveryClient
+2023-06-13 14:50:56,918 [INFO] com.userservice.CfUserServiceApplication [restartedMain] Starting CfUserServiceApplication using Java 17.0.7 on inlen8520086507 with PID 24056 (C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-user-service\target\classes started by biswprad in C:\Users\BISWPRAD\OneDrive - Capgemini\Desktop\CulturoFesto Project\backend workspace\cf-user-service)
+2023-06-13 14:50:56,920 [INFO] com.userservice.CfUserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-06-13 14:50:57,004 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-13 14:50:57,004 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-13 14:50:57,869 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-13 14:50:58,039 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 157 ms. Found 3 JPA repository interfaces.
+2023-06-13 14:50:58,388 [INFO] org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=56c01e25-31b3-3f36-8768-97130a8965b9
+2023-06-13 14:50:59,249 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9005 (http)
+2023-06-13 14:50:59,261 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2023-06-13 14:50:59,262 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-13 14:50:59,387 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-06-13 14:50:59,388 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2383 ms
+2023-06-13 14:50:59,605 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-13 14:50:59,667 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-06-13 14:50:59,889 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-13 14:51:00,046 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-06-13 14:51:00,282 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-06-13 14:51:00,302 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-06-13 14:51:01,376 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-13 14:51:01,388 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-13 14:51:02,077 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-13 14:51:02,530 [WARN] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] Unable to start LiveReload server
+2023-06-13 14:51:02,697 [INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration [restartedMain] Eureka HTTP Client uses RestTemplate.
+2023-06-13 14:51:02,932 [WARN] org.springframework.cloud.loadbalancer.config.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [restartedMain] Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-06-13 14:51:02,962 [INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2023-06-13 14:51:03,069 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2023-06-13 14:51:03,077 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2023-06-13 14:51:03,103 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2023-06-13 14:51:03,104 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2023-06-13 14:51:03,105 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2023-06-13 14:51:03,105 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2023-06-13 14:51:03,105 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2023-06-13 14:51:03,105 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2023-06-13 14:51:03,105 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2023-06-13 14:51:03,430 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2023-06-13 14:51:03,434 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2023-06-13 14:51:03,437 [INFO] com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-06-13 14:51:03,442 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1686648063441 with initial instances count: 6
+2023-06-13 14:51:03,445 [INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application USER-SERVICE with eureka with status UP
+2023-06-13 14:51:03,446 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1686648063446, current=UP, previous=STARTING]
+2023-06-13 14:51:03,449 [INFO] com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_USER-SERVICE/inlen8520086507.corp.capgemini.com:user-service:9005: registering service...
+2023-06-13 14:51:03,488 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9005 (http) with context path ''
+2023-06-13 14:51:03,489 [INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 9005
+2023-06-13 14:51:03,506 [INFO] com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_USER-SERVICE/inlen8520086507.corp.capgemini.com:user-service:9005 - registration status: 204
+2023-06-13 14:51:03,597 [INFO] com.userservice.CfUserServiceApplication [restartedMain] Started CfUserServiceApplication in 7.433 seconds (JVM running for 8.197)
+2023-06-13 14:56:03,109 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
