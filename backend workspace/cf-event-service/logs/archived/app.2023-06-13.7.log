@@ -1,0 +1,38 @@
+2023-06-13 14:29:45,374 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Returning event image for ID: 2
+2023-06-13 14:30:30,964 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Fetching event with ID: 2
+2023-06-13 14:30:30,973 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Returning event without image for ID: 2
+2023-06-13 14:30:30,988 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-10] Fetching event with ID: 2
+2023-06-13 14:30:30,993 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-10] Returning event image for ID: 2
+2023-06-13 14:30:34,965 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-9] Fetching event with ID: 2
+2023-06-13 14:30:34,972 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-9] Returning event without image for ID: 2
+2023-06-13 14:30:34,988 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Fetching event with ID: 2
+2023-06-13 14:30:34,995 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Returning event image for ID: 2
+2023-06-13 14:31:31,964 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Fetching event with ID: 2
+2023-06-13 14:31:31,975 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Returning event without image for ID: 2
+2023-06-13 14:31:32,006 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-3] Fetching event with ID: 2
+2023-06-13 14:31:32,013 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-3] Returning event image for ID: 2
+2023-06-13 14:31:50,062 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Fetching event with ID: 2
+2023-06-13 14:31:50,079 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Returning event without image for ID: 2
+2023-06-13 14:31:50,338 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Fetching event with ID: 2
+2023-06-13 14:31:50,347 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Returning event image for ID: 2
+2023-06-13 14:41:54,693 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Fetching past events
+2023-06-13 14:41:54,693 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Fetching future events
+2023-06-13 14:41:54,715 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Returning 4 future events
+2023-06-13 14:41:54,718 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-6] Returning 4 past events
+2023-06-13 14:42:17,931 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-10] Fetching event with ID: 2
+2023-06-13 14:42:17,941 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-10] Returning event without image for ID: 2
+2023-06-13 14:42:18,001 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-9] Fetching event with ID: 2
+2023-06-13 14:42:18,006 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-9] Returning event image for ID: 2
+2023-06-13 14:42:28,903 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Fetching event with ID: 1
+2023-06-13 14:42:28,915 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-4] Returning event without image for ID: 1
+2023-06-13 14:42:28,944 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Fetching event with ID: 1
+2023-06-13 14:42:28,948 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-1] Returning event image for ID: 1
+2023-06-13 14:43:21,198 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Fetching event with ID: 2
+2023-06-13 14:43:21,208 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-8] Returning event without image for ID: 2
+2023-06-13 14:43:21,231 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Fetching event with ID: 2
+2023-06-13 14:43:21,239 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-7] Returning event image for ID: 2
+2023-06-13 14:43:28,655 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-5] Fetching event with ID: 1
+2023-06-13 14:43:28,662 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-5] Returning event without image for ID: 1
+2023-06-13 14:43:28,693 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Fetching event with ID: 1
+2023-06-13 14:43:28,697 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-2] Returning event image for ID: 1
+2023-06-13 14:46:48,975 [INFO] com.eventservice.controller.EventServiceController [http-nio-9004-exec-10] Fetching event with ID: 1

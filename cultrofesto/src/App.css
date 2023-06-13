@@ -221,7 +221,7 @@
   text-align: center;
   background-color: whitesmoke;
   border-radius: 50px;
-  box-shadow: 5px 5px black;
+  box-shadow: 0 0 20px  rgb(0, 119, 255), 0 0 30px pink, 0 0 50px rgb(252, 114, 252);
 }
 .navlink_event_details .nav_link {
   color: #fff;
