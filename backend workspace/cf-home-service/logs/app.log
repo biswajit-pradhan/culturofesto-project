@@ -4,3 +4,4 @@
 2023-06-13 11:52:25,730 [INFO] com.homeservice.service.EventServiceImpl [http-nio-9003-exec-5] Retrieved all events successfully
 2023-06-13 11:52:25,730 [INFO] com.homeservice.controller.EventController [http-nio-9003-exec-5] All events retrieved successfully
 2023-06-13 11:52:28,750 [INFO] com.homeservice.service.EventServiceImpl [http-nio-9003-exec-6] Retrieved all events successfully
+2023-06-13 11:52:28,758 [INFO] com.homeservice.controller.EventController [http-nio-9003-exec-6] All events retrieved successfully
