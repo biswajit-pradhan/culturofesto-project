@@ -30,7 +30,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.eventservice" level="trace" additivity="false">
+	<logger name="com.bookingservice" level="trace" additivity="false">
 		<appender-ref ref="CONSOLE" />
 		<!--<appender-ref ref="FILE-ROLLING" />-->
 	</logger>
