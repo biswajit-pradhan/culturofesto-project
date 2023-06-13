@@ -4,7 +4,7 @@ logging:
     console: '%d [%level] %c{1.} [%t] %m%n'
   level:
     com:
-      adminservice: TRACE
+      bookingservice: TRACE
   file:
     name: appLog.log
 eureka:

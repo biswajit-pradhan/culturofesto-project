@@ -3,7 +3,7 @@ logging:
     name: appLog.log
   level:
     com:
-      adminservice: TRACE
+      feedbackservice: TRACE
   pattern:
     console: '%d [%level] %c{1.} [%t] %m%n'
     file: '%d [%level] %c{1.} [%t] %m%n'

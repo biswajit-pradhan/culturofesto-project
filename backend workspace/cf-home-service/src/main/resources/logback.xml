@@ -55,11 +55,11 @@
 	</appender>
 
 
-	<logger name="com.adminservice" level="trace" additivity="false">
+	<logger name="com.homeservice" level="trace" additivity="false">
 
 		<appender-ref ref="CONSOLE" />
 
-		<appender-ref ref="FILE-ROLLING" />
+		<!--<appender-ref ref="FILE-ROLLING" />-->
 
 	</logger>
 
@@ -68,7 +68,7 @@
 
 		<appender-ref ref="CONSOLE" />
 
-		<appender-ref ref="FILE-ROLLING" />
+		<!--<appender-ref ref="FILE-ROLLING" />-->
 
 	</root>
 

@@ -6,7 +6,7 @@ logging:
     name: appLog.log
   level:
     com:
-      adminservice: TRACE
+      userservice: TRACE
   pattern:
     console: '%d [%level] %c{1.} [%t] %m%n'
     file: '%d [%level] %c{1.} [%t] %m%n'

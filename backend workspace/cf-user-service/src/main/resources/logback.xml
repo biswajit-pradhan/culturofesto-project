@@ -30,13 +30,13 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.adminservice" level="trace" additivity="false">
+	<logger name="com.userservice" level="trace" additivity="false">
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE-ROLLING" />
+		<!--<appender-ref ref="FILE-ROLLING" />-->
 	</logger>
 
 	<root level="error">
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE-ROLLING" />
+		<!--<appender-ref ref="FILE-ROLLING" />-->
 	</root>
 </configuration>
