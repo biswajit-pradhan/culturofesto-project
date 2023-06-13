@@ -34,13 +34,17 @@ public class EventServiceImpl implements EventService {
 				.collect(Collectors.toList());
 		filteredList.stream().forEach(e -> e.setEventImage(ImageUtils.decompressImage(e.getEventImage())));
 
-		logger.info("Returning {} events", filteredList.size());
+		if (logger.isInfoEnabled()) {
+			logger.info("Returning {} events", filteredList.size());
+		}		
 		return filteredList;
 	}
 
 	@Override
 	public String addEvent(Event event, MultipartFile eventImage) {
-		logger.info("Adding event: {}", event.getEventName());
+		if (logger.isInfoEnabled()) {
+		    logger.info("Adding event: {}", event.getEventName());
+		}
 		try {
 			event.setEventImage(ImageUtils.compressImage(eventImage.getBytes()));
 		} catch (IOException e) {

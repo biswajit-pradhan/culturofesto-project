@@ -9,8 +9,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.adminservice.exceptions.EventNotFoundException;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -28,6 +26,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.adminservice.entity.Event;
+import com.adminservice.exceptions.EventNotFoundException;
 import com.adminservice.respository.EventRepository;
 
 @ContextConfiguration(classes = {EventServiceImpl.class})

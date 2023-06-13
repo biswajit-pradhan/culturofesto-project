@@ -1,7 +1,5 @@
 package com.userservice.entity;
 
-
-
 import java.sql.Date;
 
 import javax.persistence.Entity;
