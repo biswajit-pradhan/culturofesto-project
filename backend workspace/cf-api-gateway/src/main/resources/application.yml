@@ -17,3 +17,7 @@ spring:
         uri: lb://event-service
         predicates:
         - Path=/api/event/**
+      - id: home-service
+        uri: lb://home-service
+        predicates:
+        - Path=/api/home/**
