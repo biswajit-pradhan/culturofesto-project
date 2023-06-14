@@ -221,7 +221,8 @@
   text-align: center;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50px;
-  box-shadow: 0 0 20px  rgb(0, 119, 255), 0 0 30px pink, 0 0 50px rgb(252, 114, 252);
+  box-shadow: 0 0 20px rgb(0, 119, 255), 0 0 30px pink,
+    0 0 50px rgb(252, 114, 252);
 }
 .navlink_event_details .nav_link {
   color: #fff;
@@ -258,7 +259,7 @@
   text-shadow: 1px 1px whitesmoke;
   color: black;
 }
-.search-data{
+.search-data {
   font-family: "Poppins", sans-serif;
 }
 .search_button {
@@ -268,16 +269,20 @@
   background-color: cadetblue;
   font-weight: bolder;
   padding: 10px 50px;
-  font-size: 20px; 
-  border-radius: 5px; 
-  cursor: pointer; 
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
   box-shadow: 5px 5px black;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 .search_button:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
   background-color: transparent;
   font-size: 30px;
   font-weight: bolder;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }

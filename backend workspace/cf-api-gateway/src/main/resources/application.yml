@@ -21,3 +21,12 @@ spring:
         uri: lb://home-service
         predicates:
         - Path=/api/home/**
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/api/user/**
+      - id: feedback-service
+        uri: lb://feedback-service
+        predicates:
+        - Path=/api/feedback/**
+        
