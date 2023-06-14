@@ -34,7 +34,6 @@ class AppConfigurationTest {
     @Test
     void testRestTemplate() {
 
-
         RestTemplate actualRestTemplateResult = (new AppConfiguration()).restTemplate();
         List<ClientHttpRequestInitializer> clientHttpRequestInitializers = actualRestTemplateResult
                 .getClientHttpRequestInitializers();

@@ -1,9 +1,12 @@
+import axios from "axios";
 import { useFormik } from "formik";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { useState } from "react";
 
 const initialValues = {
   eventName: "",
+  eventDate: "",
   registrationOpenDate: "",
   registrationCloseDate: "",
   eventStartTime: "",
@@ -25,6 +28,7 @@ const validationSchema = Yup.object({
     .min(2)
     .max(25)
     .required("Please set event name!!"),
+  eventDate: Yup.string().required("Please set event date!!"),
   registrationOpenDate: Yup.string().required(
     "Please set registration open date!!"
   ),
@@ -41,14 +45,52 @@ const validationSchema = Yup.object({
   eventImage: Yup.mixed().required("Please choose event image!!"),
 });
 
+const handleSubmitEvent = async (values, imageData) => {
+  try {
+    const formData = new FormData();
+    const { eventImage, ...newValues } = values;
+    newValues.deleteStatus = "false";
+    newValues.eventStartTime += ":00";
+    newValues.eventCloseTime += ":00";
+
+    formData.append("event", JSON.stringify(newValues));
+    formData.append("eventImage", imageData);
+
+    const response = await axios.post("/api/admin/event/newevent", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if (response.ok) {
+      console.log("Event added successfully");
+    } else {
+      const error = await response.text();
+      console.log("Error:", error);
+    }
+  } catch (error) {
+    console.log("Error:", error.message);
+  }
+};
+
 const AdminCreateEvent = () => {
+  const [imageData, setImageData] = useState(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    setImageData(file);
+    handleChange(event);
+  };
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: validationSchema,
       onSubmit: (values, action) => {
         console.log(values);
-        action.resetForm();
+        handleSubmitEvent(values, imageData);
+        alert("Event added successfully");
+        handleBack();
       },
     });
 
@@ -88,6 +130,25 @@ const AdminCreateEvent = () => {
               </div>
 
               <div className="col-md-6">
+                <div className="form-group">
+                  <label htmlFor="eventDate" className="form-label">
+                    Event Date
+                  </label>
+                  {errors.eventDate && touched.eventDate ? (
+                    <p className="form_errors">{errors.eventDate}</p>
+                  ) : null}
+                  <input
+                    className="form-control"
+                    type="date"
+                    id="eventDate"
+                    value={values.eventDate}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </div>
+              </div>
+
+              <div className="col-md-12">
                 <div className="form-group">
                   <label htmlFor="registrationOpenDate" className="form-label">
                     Registration Open Date
@@ -295,9 +356,10 @@ const AdminCreateEvent = () => {
               <input
                 className="form-control"
                 type="file"
+                accept="image/*"
                 name="eventImage"
                 id="eventImage"
-                onChange={handleChange}
+                onChange={handleImageUpload}
               />
             </div>
 

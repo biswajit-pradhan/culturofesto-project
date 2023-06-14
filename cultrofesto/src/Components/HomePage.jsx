@@ -24,17 +24,20 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [pastEventsResponse, upcomingEventsResponse] = await Promise.all([
-          axios.get("/api/event/past"),
-          axios.get("/api/event/future"),
-        ]);
-
+        const pastEventsResponse = await axios.get("/api/event/past");
         setPastEvents(pastEventsResponse.data);
+      } catch (error) {
+        console.error("Error fetching past events:", error);
+      }
+    
+      try {
+        const upcomingEventsResponse = await axios.get("/api/event/future");
         setUpcomingEvents(upcomingEventsResponse.data);
       } catch (error) {
-        console.error("Error fetching events:", error);
+        console.error("Error fetching upcoming events:", error);
       }
     };
+    
 
     fetchData();
   }, []);

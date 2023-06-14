@@ -91,6 +91,7 @@ public class EventServiceImpl implements EventService {
 	    } else {
 	        Event eventToUpdate = optionalEvent.get();
 	        eventToUpdate.setEventName(event.getEventName());
+	        eventToUpdate.setEventDate(event.getEventDate());
 	        eventToUpdate.setRegistrationOpenDate(event.getRegistrationOpenDate());
 	        eventToUpdate.setRegistrationCloseDate(event.getRegistrationCloseDate());
 	        eventToUpdate.setEventStartTime(event.getEventStartTime());
