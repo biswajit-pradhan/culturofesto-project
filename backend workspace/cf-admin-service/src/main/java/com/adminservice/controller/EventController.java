@@ -37,6 +37,8 @@ public class EventController {
 
 	@Autowired  
 	private EventServiceImpl eventService;
+	
+	
 
 	@PutMapping("/deleteevent/{eventIdToDelete}")
 	public ResponseEntity<?> deleteEventById(@PathVariable Long eventIdToDelete) {
