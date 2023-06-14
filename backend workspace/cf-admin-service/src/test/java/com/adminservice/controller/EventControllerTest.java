@@ -34,6 +34,17 @@ class EventControllerTest {
     @MockBean
     private EventServiceImpl eventServiceImpl;
 
+    @Test
+    void testAddEvent() throws Exception {
+        MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.post("/api/admin/event/newevent")
+                .param("eventData", "foo");
+        MockHttpServletRequestBuilder requestBuilder = paramResult.param("eventImage", String.valueOf((Object) null));
+        ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(eventController)
+                .build()
+                .perform(requestBuilder);
+        actualPerformResult.andExpect(MockMvcResultMatchers.status().is(415));
+    }
+
 
     @Test
     void testDeleteEventById() throws Exception {
@@ -48,18 +59,7 @@ class EventControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("Event deleted successfully"));
     }
 
-    @Test
-    void testAddEvent() throws Exception {
-        MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.post("/api/admin/event/newevent")
-                .param("eventData", "foo");
-        MockHttpServletRequestBuilder requestBuilder = paramResult.param("eventImage", String.valueOf((Object) null));
-        ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(eventController)
-                .build()
-                .perform(requestBuilder);
-        actualPerformResult.andExpect(MockMvcResultMatchers.status().is(415));
-    }
-
-
+ 
     @Test
     void testGetAllEvents() throws Exception {
         when(eventServiceImpl.getAllEvents()).thenReturn(new ArrayList<>());
@@ -310,13 +310,11 @@ class EventControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("An error occurred"));
     }
 
-
     @Test
     void testUpdateEvent() throws Exception {
-        MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
                 .put("/api/admin/event/eventedit/{eventIdToUpdate}", 1L)
                 .param("eventData", "foo");
-        MockHttpServletRequestBuilder requestBuilder = paramResult.param("eventImage", String.valueOf((Object) null));
         ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(eventController)
                 .build()
                 .perform(requestBuilder);

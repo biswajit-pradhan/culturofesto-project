@@ -1,6 +1,8 @@
+import axios from "axios";
 import { useFormik } from "formik";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { useState } from "react";
 
 const initialValues = {
   eventName: "",
@@ -43,14 +45,52 @@ const validationSchema = Yup.object({
   eventImage: Yup.mixed().required("Please choose event image!!"),
 });
 
+const handleSubmitEvent = async (values, imageData) => {
+  try {
+    const formData = new FormData();
+    const { eventImage, ...newValues } = values;
+    newValues.deleteStatus = "false";
+    newValues.eventStartTime += ":00";
+    newValues.eventCloseTime += ":00";
+
+    formData.append("event", JSON.stringify(newValues));
+    formData.append("eventImage", imageData);
+
+    const response = await axios.post("/api/admin/event/newevent", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    if (response.ok) {
+      console.log("Event added successfully");
+    } else {
+      const error = await response.text();
+      console.log("Error:", error);
+    }
+  } catch (error) {
+    console.log("Error:", error.message);
+  }
+};
+
 const AdminCreateEvent = () => {
+  const [imageData, setImageData] = useState(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    setImageData(file);
+    handleChange(event);
+  };
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: validationSchema,
       onSubmit: (values, action) => {
         console.log(values);
-        action.resetForm();
+        handleSubmitEvent(values, imageData);
+        alert("Event added successfully");
+        handleBack();
       },
     });
 
@@ -316,9 +356,10 @@ const AdminCreateEvent = () => {
               <input
                 className="form-control"
                 type="file"
+                accept="image/*"
                 name="eventImage"
                 id="eventImage"
-                onChange={handleChange}
+                onChange={handleImageUpload}
               />
             </div>
 
