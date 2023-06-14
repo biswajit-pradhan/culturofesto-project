@@ -13,7 +13,6 @@ class ImageUtilsTest {
         assertEquals(12, ImageUtils.compressImage("AXAXAXAX".getBytes("UTF-8")).length);
     }
 
-
     @Test
     void testDecompressImage() throws UnsupportedEncodingException {
         assertEquals(0, ImageUtils.decompressImage("AXAXAXAX".getBytes("UTF-8")).length);

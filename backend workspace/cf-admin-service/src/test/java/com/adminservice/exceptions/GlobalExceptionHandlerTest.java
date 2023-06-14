@@ -23,5 +23,5 @@ class GlobalExceptionHandlerTest {
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, actualHandleMethodArgumentNotValidExceptionResult.getStatusCode());
         assertTrue(actualHandleMethodArgumentNotValidExceptionResult.getHeaders().isEmpty());
     }
-
 }
+
