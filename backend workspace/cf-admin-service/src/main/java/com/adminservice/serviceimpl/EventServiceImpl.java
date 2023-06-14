@@ -1,6 +1,7 @@
 package com.adminservice.serviceimpl;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,10 +29,13 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<Event> getAllEvents() {
 		logger.info("Fetching all events");
+		Date currentDate = new Date(System.currentTimeMillis());
 
 		List<Event> list = eventRepository.findAll();
-		List<Event> filteredList = list.stream().filter(e -> e.getDeleteStatus().equals(Boolean.FALSE))
-				.collect(Collectors.toList());
+		List<Event> filteredList = list.stream()
+	            .filter(e -> e.getDeleteStatus().equals(Boolean.FALSE))
+	            .filter(e -> e.getEventDate().after(currentDate)) // Filter events with a date after the current date
+	            .collect(Collectors.toList());
 		filteredList.stream().forEach(e -> e.setEventImage(ImageUtils.decompressImage(e.getEventImage())));
 
 		if (logger.isInfoEnabled()) {
@@ -78,43 +82,36 @@ public class EventServiceImpl implements EventService {
 		}
 	}
 
-	public Object updateEvent(Long eventIdToUpdate, Event event, MultipartFile eventImage) {
-		logger.info("Updating event with ID: {}", eventIdToUpdate);
-		if (!(getEventByEventId(eventIdToUpdate) instanceof Event)) {
-			logger.warn("No event found with ID: {}", eventIdToUpdate);
-			return "No event found with this ID";
-		} else {
-			try {
-				event.setEventImage(ImageUtils.compressImage(eventImage.getBytes()));
-			} catch (IOException e) {
-				logger.error("Error compressing event image", e);
-				return "Image could not be set for the event data";
-			}
+	public Object updateEvent(Long eventIdToUpdate, Event event) {
+	    logger.info("Updating event with ID: {}", eventIdToUpdate);
+	    Optional<Event> optionalEvent = eventRepository.findById(eventIdToUpdate);
+	    if (optionalEvent.isEmpty()) {
+	        logger.warn("No event found with ID: {}", eventIdToUpdate);
+	        return "No event found with this ID";
+	    } else {
+	        Event eventToUpdate = optionalEvent.get();
+	        eventToUpdate.setEventName(event.getEventName());
+	        eventToUpdate.setRegistrationOpenDate(event.getRegistrationOpenDate());
+	        eventToUpdate.setRegistrationCloseDate(event.getRegistrationCloseDate());
+	        eventToUpdate.setEventStartTime(event.getEventStartTime());
+	        eventToUpdate.setEventCloseTime(event.getEventCloseTime());
+	        eventToUpdate.setRegistrationFee(event.getRegistrationFee());
+	        eventToUpdate.setEventCapacity(event.getEventCapacity());
+	        eventToUpdate.setBreakfastPrice(event.getBreakfastPrice());
+	        eventToUpdate.setLunchPrice(event.getLunchPrice());
+	        eventToUpdate.setDinnerPrice(event.getDinnerPrice());
+	        eventToUpdate.setDeleteStatus(event.getDeleteStatus());
 
-			Event eventToUpdate = eventRepository.findById(eventIdToUpdate).get();
-			eventToUpdate.setEventName(event.getEventName());
-			eventToUpdate.setRegistrationOpenDate(event.getRegistrationOpenDate());
-			eventToUpdate.setRegistrationCloseDate(event.getRegistrationCloseDate());
-			eventToUpdate.setEventStartTime(event.getEventStartTime());
-			eventToUpdate.setEventCloseTime(event.getEventCloseTime());
-			eventToUpdate.setRegistrationFee(event.getRegistrationFee());
-			eventToUpdate.setEventCapacity(event.getEventCapacity());
-			eventToUpdate.setBreakfastPrice(event.getBreakfastPrice());
-			eventToUpdate.setLunchPrice(event.getLunchPrice());
-			eventToUpdate.setDinnerPrice(event.getDinnerPrice());
-			eventToUpdate.setDeleteStatus(event.getDeleteStatus());
-			eventToUpdate.setEventImage(event.getEventImage());
+	        Event updatedEvent = eventRepository.save(eventToUpdate);
 
-			Event check = eventRepository.save(eventToUpdate);
+	        if (updatedEvent != null) {
+	            logger.info("Event data updated successfully");
+	            return "Event data updated successfully";
+	        }
 
-			if (check != null) {
-				logger.info("Event data and image updated successfully");
-				return "Event data and image updated successfully";
-			}
-
-			logger.error("Failed to update event image");
-			return "Image could not be uploaded";
-		}
+	        logger.error("Failed to update event data");
+	        return "Failed to update event data";
+	    }
 	}
 
 	@Override
