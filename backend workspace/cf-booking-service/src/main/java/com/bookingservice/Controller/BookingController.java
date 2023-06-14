@@ -24,19 +24,19 @@ public class BookingController {
 	private BookingService bookingService;
 	
 	@GetMapping("api/user/event/booking/bookingdata/{bookingId}")
-	private Booking getBookingById(@PathVariable long bookingId) {
+	public Booking getBookingById(@PathVariable long bookingId) {
 		LOG.info("Fetching the booking details by booking id {}", bookingId);
 		return this.bookingService.getBookingById(bookingId);
 	}
 	
 	@GetMapping("api/user/event/booking/allBookingdata")
-	private ResponseEntity<List<Booking>> getAllBookingData(){
+	public ResponseEntity<List<Booking>> getAllBookingData(){
 		LOG.info("Fetching all the booking details from the database");
 		return ResponseEntity.ok().body(this.bookingService.getAllBookings());
 	}
 	
 	@PostMapping("/api/user/event/booking/bookingdata")
-	private ResponseEntity<Booking> saveBooking(@RequestBody Booking booking){
+	public ResponseEntity<Booking> saveBooking(@RequestBody Booking booking){
 		LOG.info("Creating a new details, booking info - {}", booking);
 		return ResponseEntity.ok().body(this.bookingService.createBooking(booking));
 	}

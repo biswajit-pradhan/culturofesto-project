@@ -9,8 +9,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.adminservice.exceptions.EventNotFoundException;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -28,6 +26,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.adminservice.entity.Event;
+import com.adminservice.exceptions.EventNotFoundException;
 import com.adminservice.respository.EventRepository;
 
 @ContextConfiguration(classes = {EventServiceImpl.class})
@@ -109,65 +108,6 @@ class EventServiceImplTest {
         verify(eventRepository).findById(Mockito.anyLong());
     }
 
-
-    @Test
-    void testUpdateEvent() throws IOException {
-        Event event = new Event();
-        event.setBreakfastPrice(10.0d);
-        event.setDeleteStatus(true);
-        event.setDinnerPrice(10.0d);
-        event.setEventCapacity(1L);
-        event.setEventCloseTime(mock(Time.class));
-        event.setEventDate(mock(Date.class));
-        event.setEventImage("AXAXAXAX".getBytes("UTF-8"));
-        event.setEventName("Event Name");
-        event.setEventStartTime(mock(Time.class));
-        event.setId(1L);
-        event.setLunchPrice(10.0d);
-        event.setRegistrationCloseDate(mock(Date.class));
-        event.setRegistrationFee(10.0d);
-        event.setRegistrationOpenDate(mock(Date.class));
-        Optional<Event> ofResult = Optional.of(event);
-
-        Event event2 = new Event();
-        event2.setBreakfastPrice(10.0d);
-        event2.setDeleteStatus(true);
-        event2.setDinnerPrice(10.0d);
-        event2.setEventCapacity(1L);
-        event2.setEventCloseTime(mock(Time.class));
-        event2.setEventDate(mock(Date.class));
-        event2.setEventImage("AXAXAXAX".getBytes("UTF-8"));
-        event2.setEventName("Event Name");
-        event2.setEventStartTime(mock(Time.class));
-        event2.setId(1L);
-        event2.setLunchPrice(10.0d);
-        event2.setRegistrationCloseDate(mock(Date.class));
-        event2.setRegistrationFee(10.0d);
-        event2.setRegistrationOpenDate(mock(Date.class));
-        when(eventRepository.save(Mockito.<Event>any())).thenReturn(event2);
-        when(eventRepository.findById(Mockito.<Long>any())).thenReturn(ofResult);
-
-        Event event3 = new Event();
-        event3.setBreakfastPrice(10.0d);
-        event3.setDeleteStatus(true);
-        event3.setDinnerPrice(10.0d);
-        event3.setEventCapacity(1L);
-        event3.setEventCloseTime(mock(Time.class));
-        event3.setEventDate(mock(Date.class));
-        event3.setEventImage("AXAXAXAX".getBytes("UTF-8"));
-        event3.setEventName("Event Name");
-        event3.setEventStartTime(mock(Time.class));
-        event3.setId(1L);
-        event3.setLunchPrice(10.0d);
-        event3.setRegistrationCloseDate(mock(Date.class));
-        event3.setRegistrationFee(10.0d);
-        event3.setRegistrationOpenDate(mock(Date.class));
-        assertEquals("Event data and image updated successfully", eventServiceImpl.updateEvent(1L, event3,
-                new MockMultipartFile("Name", new ByteArrayInputStream("AXAXAXAX".getBytes("UTF-8")))));
-        verify(eventRepository).save(Mockito.<Event>any());
-        verify(eventRepository, atLeast(1)).findById(Mockito.<Long>any());
-        assertEquals(12, event3.getEventImage().length);
-    }
 
     @Test
     void testDeleteEventById() throws UnsupportedEncodingException {

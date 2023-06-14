@@ -11,7 +11,6 @@ const HomePage = () => {
     // Handle search click and redirect to search page
   };
 
-
   const intervalTime = 2000; // Time interval between image scrolls (in milliseconds)
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
@@ -19,15 +18,15 @@ const HomePage = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
 
   const imageArrayBuffer = pastEvents.eventImage; // Assuming the byte array is returned as `data`
-const blob = new Blob([imageArrayBuffer], { type: 'image/png' });
-const imageUrl = URL.createObjectURL(blob);
+  const blob = new Blob([imageArrayBuffer], { type: "image/png" });
+  const imageUrl = URL.createObjectURL(blob);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [pastEventsResponse, upcomingEventsResponse] = await Promise.all([
           axios.get("/api/event/past"),
-          axios.get("/api/event/future")
+          axios.get("/api/event/future"),
         ]);
 
         setPastEvents(pastEventsResponse.data);
@@ -40,8 +39,6 @@ const imageUrl = URL.createObjectURL(blob);
     fetchData();
   }, []);
 
-
-
   return (
     <div className="d-flex flex-column min-vh-100">
       <div className="search-section">
@@ -49,10 +46,7 @@ const imageUrl = URL.createObjectURL(blob);
           <form className="form-inline">
             <div className="input-group">
               <NavLink to="/search">
-                <button
-                  className="search_button"
-                  onClick={handleSearchClick}
-                >
+                <button className="search_button" onClick={handleSearchClick}>
                   Search events
                 </button>
               </NavLink>
