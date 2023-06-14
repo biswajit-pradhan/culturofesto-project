@@ -93,20 +93,31 @@ const UserDashboardPage = () => {
       setEventDataPst(pstEventData);
 
       //Fetch feedback details for each event
-      pstEventData.forEach((event) => {
-        fetchFeedbackDetails(event.id);
-      });
+      // pstEventData.forEach((event) => {
+      //   fetchFeedbackDetails(event.id);
+      // });
     } catch (error) {
       console.error("Error fetching past event details:", error);
     }
   };
 
+  // useEffect(() => {
+  //   fetchEventDetails();
+  // });
   useEffect(() => {
     fetchEventDetails();
-  });
+  }, []);
+
+  useEffect(() => {
+    // Fetch feedback details for each event
+    eventDataPst.forEach((event) => {
+      fetchFeedbackDetails(event.id);
+    });
+  }, [eventDataPst]);
 
   const fetchFeedbackDetails = async (eventid) => {
     console.log("inside fetchFeedBackDetails");
+
     try {
       const feedbackResponse = await fetch(
         `/api/feedback/get-feedback/${userId}/${eventid}`
@@ -124,6 +135,7 @@ const UserDashboardPage = () => {
     }
   };
 
+  console.log(feedbackData);
   return (
     <div>
       <div>
@@ -174,7 +186,7 @@ const UserDashboardPage = () => {
             style={{ display: "flex", justifyContent: "center" }}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={1500}
+            // interval={1500}
             indicators={false}
           >
             {eventDataPst.map((event) => (
