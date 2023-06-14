@@ -42,6 +42,9 @@ function Login() {
   };
 
   const loginUser = async () => {
+    if (handleValidation()){
+
+    
     // let authCode = "Basic " + btoa(user.userName + ":" + user.password);
     // try {
     //   const response = await axios.get("http://localhost:8080/api/user/login", {
@@ -55,6 +58,7 @@ function Login() {
     //   console.error(error);
     //   setMsg("Invalid Credentials");
     // }
+    }
   };
 
   const navigate = useNavigate();
