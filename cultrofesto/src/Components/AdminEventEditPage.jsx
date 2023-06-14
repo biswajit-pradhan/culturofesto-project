@@ -180,15 +180,9 @@ const AdminEventEditPage = () => {
       updatedEvent.dinnerPrice =
         dinnerPrice !== undefined ? parseFloat(dinnerPrice) : event.dinnerPrice;
 
+      updatedEvent.deleteStatus = "false";
       // Append event data to form data
       formData.append("event", JSON.stringify(updatedEvent));
-
-      // Handle event image
-      if (eventImage) {
-        formData.append("eventImage", eventImage);
-      } else {
-        formData.append("eventImage", event.eventImage);
-      }
 
       await axios.put(
         `http://localhost:9001/api/admin/event/eventedit/${eventId}`,
@@ -373,18 +367,11 @@ const AdminEventEditPage = () => {
             </div>
           </div>
 
-          <div className="mb-3">
-            <label className="form-label">Event Image:</label>
-            <input
-              placeholder={event.eventImage}
-              type="file"
-              accept="image/*"
-              className="form-control"
-              onChange={handleEventImageChange}
-            />
-          </div>
-
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleBack}
+          >
             SAVE CHANGES
           </button>
           <span>

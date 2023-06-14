@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 const initialValues = {
   eventName: "",
+  eventDate: "",
   registrationOpenDate: "",
   registrationCloseDate: "",
   eventStartTime: "",
@@ -25,6 +26,7 @@ const validationSchema = Yup.object({
     .min(2)
     .max(25)
     .required("Please set event name!!"),
+  eventDate: Yup.string().required("Please set event date!!"),
   registrationOpenDate: Yup.string().required(
     "Please set registration open date!!"
   ),
@@ -88,6 +90,25 @@ const AdminCreateEvent = () => {
               </div>
 
               <div className="col-md-6">
+                <div className="form-group">
+                  <label htmlFor="eventDate" className="form-label">
+                    Event Date
+                  </label>
+                  {errors.eventDate && touched.eventDate ? (
+                    <p className="form_errors">{errors.eventDate}</p>
+                  ) : null}
+                  <input
+                    className="form-control"
+                    type="date"
+                    id="eventDate"
+                    value={values.eventDate}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                </div>
+              </div>
+
+              <div className="col-md-12">
                 <div className="form-group">
                   <label htmlFor="registrationOpenDate" className="form-label">
                     Registration Open Date
