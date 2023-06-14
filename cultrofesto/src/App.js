@@ -13,6 +13,7 @@ import EventDetailsPage from "./Components/EventDetailsPage";
 import PaymentPage from "./Components/PaymentPage";
 import Footer from "./Components/Footer";
 import EventBookingPage from "./Components/EventBookingPage";
+import UserBookingDetailsPage from "./Components/UserBookingDetailsPage";
 
 function App() {
   return (
@@ -34,11 +35,11 @@ function App() {
           <Route path="/event-edit/:eventId" element={<AdminEventEditPage />} />
           <Route path="/payment-page" element={<PaymentPage />} />
           <Route path="/event-booking" element={<EventBookingPage />} />
+          <Route path="/booking-details" element={<UserBookingDetailsPage />} />
         </Routes>
         <Footer />
       </div>
     </Router>
-    
   );
 }
 

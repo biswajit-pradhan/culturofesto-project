@@ -40,7 +40,7 @@ public class FeedbackServiceImpl implements FeedbackService {
         logger.info("Feedback saved. UserId: {}, EventId: {}", userId, eventId);
     }
 
-    public String getFeedbackByUserIdAndEventId(Long userId, Long eventId) {
+    public Feedback getFeedbackByUserIdAndEventId(Long userId, Long eventId) {
         logger.info("Fetching feedback. UserId: {}, EventId: {}", userId, eventId);
         return feedbackRepository.findByUser_IdAndEvent_Id(userId, eventId);
     }

@@ -6,10 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.feedbackservice.entity.Feedback;
 import com.feedbackservice.service.FeedbackService;
 
 @RestController
-@RequestMapping("/api/user/feedback")
+@RequestMapping("/api/feedback")
+@CrossOrigin(origins = { "*" })
 public class FeedbackController {
     private static final Logger logger = LoggerFactory.getLogger(FeedbackController.class);
 
@@ -36,16 +38,16 @@ public class FeedbackController {
     public ResponseEntity<?> getFeedbackByUserIdAndEventId(@PathVariable("userId") Long userId,
                                                            @PathVariable("eventId") Long eventId) {
         try {
-            String feedback = feedbackService.getFeedbackByUserIdAndEventId(userId, eventId);
-            if (feedback.isEmpty()) {
-                logger.warn("Feedback not found. UserId: {}, EventId: {}", userId, eventId);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Feedback not found");
-            }
+            Feedback feedback = feedbackService.getFeedbackByUserIdAndEventId(userId, eventId);
+//            if (((CharSequence) feedback).isEmpty()) {
+//                logger.warn("Feedback not found. UserId: {}, EventId: {}", userId, eventId);
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Feedback not found");
+//            }
             logger.info("Feedback fetched successfully. UserId: {}, EventId: {}", userId, eventId);
             return ResponseEntity.ok(feedback);
         } catch (Exception e) {
             logger.error("Failed to fetch feedback. UserId: {}, EventId: {}", userId, eventId, e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to fetch feedback");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No Feedback Found");
         }
     }
 }
