@@ -116,8 +116,6 @@ const UserDashboardPage = () => {
   }, [eventDataPst]);
 
   const fetchFeedbackDetails = async (eventid) => {
-    console.log("inside fetchFeedBackDetails");
-
     try {
       const feedbackResponse = await fetch(
         `/api/feedback/get-feedback/${userId}/${eventid}`
@@ -135,7 +133,6 @@ const UserDashboardPage = () => {
     }
   };
 
-  console.log(feedbackData);
   return (
     <div>
       <div>
