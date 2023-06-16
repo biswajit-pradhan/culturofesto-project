@@ -29,4 +29,8 @@ spring:
         uri: lb://feedback-service
         predicates:
         - Path=/api/feedback/**
+      - id: booking-service
+        uri: lb://booking-service
+        predicates:
+        - Path=/api/booking/**
         

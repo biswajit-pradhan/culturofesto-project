@@ -11,14 +11,16 @@ import com.feedbackservice.service.EventService;
 @Service
 public class EventServiceImpl implements EventService {
 
-    private static final Logger logger = LoggerFactory.getLogger(EventServiceImpl.class);
+	// Logger instance for logging events in the EventServiceImpl class
+	private static final Logger LOGGER = LoggerFactory.getLogger(EventServiceImpl.class);
+
 
     @Autowired
     EventRepository eventRepository;
 
     @Override
     public Event getEventById(Long eventId) {
-        logger.info("Fetching event by ID: {}", eventId);
+    	LOGGER.info("Fetching event by ID: {}", eventId);
         return eventRepository.findById(eventId).orElse(null);
     }
 }

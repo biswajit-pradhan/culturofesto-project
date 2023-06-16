@@ -11,14 +11,14 @@ import com.feedbackservice.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     UserRepository userRepository;
 
     @Override
     public User getUserById(Long userId) {
-        logger.info("Fetching user by ID: {}", userId);
+    	LOGGER.info("Fetching user by ID: {}", userId);
         return userRepository.findById(userId).orElse(null);
     }
 }

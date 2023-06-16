@@ -1,12 +1,16 @@
-package com.userservice.entity;
+package com.bookingservice.entity;
 
+import java.math.BigInteger;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+
+import com.bookingservice.enums.PaymentMethod;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,35 +20,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class BookingData {
+public class PaymentData {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull
-	private Long userId;
+	private Long bookingId;
 	
 	@NotNull
-	private Long eventId;
+	private PaymentMethod paymentMethod;
 	
 	@NotNull
-	private Date bookingDate;
+	@Column(columnDefinition = "BIGINT")
+	private BigInteger cardNumber;
 	
 	@NotNull
-	private Long numberOfAdults;
+	private Date expiryDate;
 	
 	@NotNull
-	private Long numberOfChildren;
-	
-	@NotNull
-	private Long numberOfBreakfast;
-	
-	@NotNull
-	private Long numberOfLunch;
-	
-	@NotNull
-	private Long numberOfDinner;
+	private Integer cvvNumber;
 	
 	@NotNull
 	private Double totalPrice;
