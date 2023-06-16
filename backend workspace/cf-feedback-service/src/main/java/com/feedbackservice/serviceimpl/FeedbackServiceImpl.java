@@ -15,7 +15,7 @@ import com.feedbackservice.service.UserService;
 
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
-    private static final Logger logger = LoggerFactory.getLogger(FeedbackServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FeedbackServiceImpl.class);
 
     @Autowired
     UserService userService;
@@ -37,11 +37,11 @@ public class FeedbackServiceImpl implements FeedbackService {
         feedback.setFeedbackText(feedbackText);
 
         feedbackRepository.save(feedback);
-        logger.info("Feedback saved. UserId: {}, EventId: {}", userId, eventId);
+        LOGGER.info("Feedback saved. UserId: {}, EventId: {}", userId, eventId);
     }
 
     public Feedback getFeedbackByUserIdAndEventId(Long userId, Long eventId) {
-        logger.info("Fetching feedback. UserId: {}, EventId: {}", userId, eventId);
-        return feedbackRepository.findByUser_IdAndEvent_Id(userId, eventId);
+    	LOGGER.info("Fetching feedback. UserId: {}, EventId: {}", userId, eventId);
+        return feedbackRepository.findByUserIdAndEventId(userId, eventId);
     }
 }

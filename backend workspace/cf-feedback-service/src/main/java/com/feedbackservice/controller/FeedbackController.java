@@ -13,7 +13,7 @@ import com.feedbackservice.service.FeedbackService;
 @RequestMapping("/api/feedback")
 @CrossOrigin(origins = { "*" })
 public class FeedbackController {
-    private static final Logger logger = LoggerFactory.getLogger(FeedbackController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FeedbackController.class);
 
     @Autowired
     FeedbackService feedbackService;
@@ -25,10 +25,10 @@ public class FeedbackController {
                                                @RequestBody String feedbackText) {
         try {
             feedbackService.saveFeedback(userId, eventId, feedbackText);
-            logger.info("Feedback posted successfully. UserId: {}, EventId: {}", userId, eventId);
+            LOGGER.info("Feedback posted successfully. UserId: {}, EventId: {}", userId, eventId);
             return ResponseEntity.ok("Feedback posted successfully");
         } catch (Exception e) {
-            logger.error("Failed to post feedback. UserId: {}, EventId: {}", userId, eventId, e);
+        	LOGGER.error("Failed to post feedback. UserId: {}, EventId: {}", userId, eventId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to post feedback");
         }
     }
@@ -43,10 +43,10 @@ public class FeedbackController {
 //                logger.warn("Feedback not found. UserId: {}, EventId: {}", userId, eventId);
 //                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Feedback not found");
 //            }
-            logger.info("Feedback fetched successfully. UserId: {}, EventId: {}", userId, eventId);
+            LOGGER.info("Feedback fetched successfully. UserId: {}, EventId: {}", userId, eventId);
             return ResponseEntity.ok(feedback);
         } catch (Exception e) {
-            logger.error("Failed to fetch feedback. UserId: {}, EventId: {}", userId, eventId, e);
+        	LOGGER.error("Failed to fetch feedback. UserId: {}, EventId: {}", userId, eventId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No Feedback Found");
         }
     }

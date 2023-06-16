@@ -60,7 +60,7 @@ public class Event {
 
     @NotNull
     @Future
-    private Date EventDate;
+    private Date eventDate;
 
  
 

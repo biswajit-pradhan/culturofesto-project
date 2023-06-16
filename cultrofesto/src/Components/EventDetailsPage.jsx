@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const EventDetailsPage = () => {
   const { eventId } = useParams();
@@ -32,11 +32,6 @@ const EventDetailsPage = () => {
     fetchEventDetails();
   }, [eventId]);
 
-  const handleBookTicket = () => {
-    console.log(event.eventId);
-    navigate("/event-booking");
-  };
-
   if (!event) {
     return <div>Loading event details...</div>;
   }
@@ -63,10 +58,14 @@ const EventDetailsPage = () => {
                 <img
                   src={eventImage}
                   alt="Event"
-                  style={{ width: '500px', height: '500px', borderRadius: '5%' }}
+                  style={{
+                    width: "500px",
+                    height: "500px",
+                    borderRadius: "5%",
+                  }}
                 />
               )}
-              <h1 style={{color:"ThreeDLightShadow" }}>{event.eventName}</h1>
+              <h1 style={{ color: "ThreeDLightShadow" }}>{event.eventName}</h1>
               <p>Event Date: {event.eventDate}</p>
               <p>Registration Open Date: {event.registrationOpenDate}</p>
               <p>Registration Close Date: {event.registrationCloseDate}</p>
@@ -79,12 +78,9 @@ const EventDetailsPage = () => {
               <p>Dinner Price: {event.dinnerPrice}</p>
               <p>Hurry only {event.eventCapacity} tickets remaining...</p>
             </div>
-            <NavLink
-              className="btn btn-primary nav_link"
-              onClick={handleBookTicket}
-            >
-              Book Ticket
-            </NavLink>
+            <Link to={`/event-booking/${event.id}`}>
+              <button className="btn btn-primary">Book Ticket</button>
+            </Link>
           </div>
         </div>
       </div>

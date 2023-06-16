@@ -1,16 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
-
-const event = {
-  eventId: 1,
-  eventName: "Dasara",
-  registrationOpenDate: "2023-06-01",
-  registrationCloseDate: "2023-06-10",
-  eventStartTime: "10:00",
-  eventCloseTime: "18:00",
-  registrationFee: 500.0,
-  entryCapacity: 100.0,
-};
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 const getCurrentDate = () => {
   const today = new Date();
@@ -21,9 +11,16 @@ const getCurrentDate = () => {
 };
 
 const EventBookingPage = () => {
+  const loggedInUserId = 3;
+
+  const [bookingResponse, setBookingResponse] = useState(null);
+  const { eventId } = useParams();
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [foodChoices, setFoodChoices] = useState([]);
+  const [eventData, setEventData] = useState([]);
+
+  const [bookingDate] = useState(getCurrentDate());
 
   const handleAdultChange = (event) => {
     setAdults(parseInt(event.target.value));
@@ -40,8 +37,8 @@ const EventBookingPage = () => {
   };
 
   const calculateTotalPrice = () => {
-    const childPrice = 10; // Price for each child
-    const adultPrice = childPrice * 1.05; // 5% higher price for adults
+    const childPrice = 10;
+    const adultPrice = childPrice * 1.05;
 
     let totalPrice = 0;
 
@@ -64,10 +61,10 @@ const EventBookingPage = () => {
       const personType = i < adults ? "Adult" : "Child";
       const personNumber = i < adults ? i + 1 : i - adults + 1;
 
-      const personFoodChoices = foodChoices[i] || []; // Ensure foodChoices[i] is an array
+      const personFoodChoices = foodChoices[i] || [];
 
       for (let j = 0; j < 3; j++) {
-        personFoodChoices[j] = personFoodChoices[j] || false; // Ensure personFoodChoices[j] is initialized to false if undefined
+        personFoodChoices[j] = personFoodChoices[j] || false;
       }
 
       inputs.push(
@@ -108,16 +105,93 @@ const EventBookingPage = () => {
       newFoodChoices.push(foodChoices[i] || []);
     }
 
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `/api/admin/event/placeholder/eventedit/${eventId}/0`
+        );
+        setEventData(response.data);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+
+    fetchData();
+
     setFoodChoices(newFoodChoices);
   }, [adults, children]);
-  const bookingDate = getCurrentDate();
 
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
   };
+
+  const formatDate = (date) => {
+    const [day, month, year] = date.split("-");
+    return `${year}-${month}-${day}`;
+  };
+
+  const formatDateForShow = (timestamp) => {
+    const date = new Date(timestamp);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+
   const handleBookTicket = () => {
-    console.log(event.eventId);
+    const numberOfBreakfast = foodChoices.reduce(
+      (total, choices) => total + (choices[0] ? 1 : 0),
+      0
+    );
+    const numberOfLunch = foodChoices.reduce(
+      (total, choices) => total + (choices[1] ? 1 : 0),
+      0
+    );
+    const numberOfDinner = foodChoices.reduce(
+      (total, choices) => total + (choices[2] ? 1 : 0),
+      0
+    );
+    const totalPrice = calculateTotalPrice();
+
+    const bookingData = {
+      eventId,
+      bookingDate: formatDate(bookingDate),
+      numberOfAdults: adults,
+      numberOfChildren: children,
+      numberOfBreakfast,
+      numberOfLunch,
+      numberOfDinner,
+      totalPrice: parseFloat(totalPrice),
+    };
+
+    axios
+      .post(`/api/booking/addbooking/${eventId}/${loggedInUserId}`, bookingData)
+      .then((addBookingResponse) => {
+        setBookingResponse(addBookingResponse.data);
+        if (
+          addBookingResponse.data === "You already registered for this event"
+        ) {
+          alert(addBookingResponse.data);
+          navigate("/");
+        } else {
+          axios
+            .get(`/api/booking/getbooking/${eventId}/${loggedInUserId}`)
+            .then((getBookingResponse) => {
+              // setBookingResponse(getBookingResponse.data);
+              console.log(getBookingResponse.data);
+              navigate(
+                `/payment-page/${getBookingResponse.data.id}/${getBookingResponse.data.totalPrice}`
+              );
+            })
+            .catch((error) => {
+              console.error("Error fetching booking data:", error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding booking:", error);
+      });
   };
 
   return (
@@ -132,12 +206,18 @@ const EventBookingPage = () => {
             <div className="card text-center">
               <div className="card-body">
                 <h1 className="card-title">Booking Details</h1>
-                <p>Event Name: {event.eventName}</p>
-                <p>Registration Open Date: {event.registrationOpenDate}</p>
-                <p>Registration Close Date: {event.registrationCloseDate}</p>
-                <p>Event Start Time: {event.eventStartTime}</p>
-                <p>Event Close Time: {event.eventCloseTime}</p>
-                <p>Registration Fee: {event.registrationFee}</p>
+                <p>Event Name: {eventData.eventName}</p>
+                <p>
+                  Registration Open Date:{" "}
+                  {formatDateForShow(eventData.registrationOpenDate)}
+                </p>
+                <p>
+                  Registration Close Date:{" "}
+                  {formatDateForShow(eventData.registrationCloseDate)}
+                </p>
+                <p>Event Start Time: {eventData.eventStartTime}</p>
+                <p>Event Close Time: {eventData.eventCloseTime}</p>
+                <p>Registration Fee: {eventData.registrationFee}</p>
                 <p>Booking Date: {bookingDate}</p>
               </div>
             </div>
@@ -180,14 +260,11 @@ const EventBookingPage = () => {
       </div>
       <br />
       <div style={{ alignItems: "center", textAlign: "center" }}>
-        <NavLink
-          className="btn btn-primary"
-          onClick={handleBookTicket}
-          to="/payment-page"
-        >
+        <NavLink className="btn btn-primary" onClick={handleBookTicket} to="#">
           Submit
         </NavLink>
       </div>
+
       <br />
       <br />
     </>

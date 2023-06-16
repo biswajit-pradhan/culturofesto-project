@@ -1,14 +1,16 @@
 package com.userservice.entity;
 
+import java.math.BigInteger;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+
+import com.userservice.enums.PaymentMethod;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,32 +21,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class PaymentData {
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	@NotNull
-	private int ticketPrice;
+	private Long bookingId;
 	
 	@NotNull
-	private String paymentMethod;
+	private PaymentMethod paymentMethod;
 	
 	@NotNull
-	private Long cardNumber;
+	@Column(columnDefinition = "BIGINT")
+	private BigInteger cardNumber;
 	
 	@NotNull
-	@Future
-	private Date expDate;
+	private Date expiryDate;
 	
 	@NotNull
-	private int cvvNumber;
+	private Integer cvvNumber;
 	
 	@NotNull
-	private int otp;
-	
-	@OneToOne
-	private BookingData bookingData;
-	
-	
-	
+	private Double totalPrice;
 }
