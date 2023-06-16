@@ -1,47 +1,59 @@
 package com.feedbackservice.serviceimpl;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.feedbackservice.entity.Event;
 import com.feedbackservice.entity.Feedback;
-import com.feedbackservice.entity.User;
 import com.feedbackservice.repository.FeedbackRepository;
-import com.feedbackservice.service.EventService;
 import com.feedbackservice.service.FeedbackService;
-import com.feedbackservice.service.UserService;
 
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FeedbackServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(FeedbackServiceImpl.class);
 
-    @Autowired
-    UserService userService;
+	@Autowired
+	FeedbackRepository feedbackRepository;
 
-    @Autowired
-    EventService eventService;
+	@Override
+	public String saveFeedback(Long userId, Long eventId, String feedbackText) {
 
-    @Autowired
-    FeedbackRepository feedbackRepository;
+		Optional<Feedback> feedbackCheckDuplicate = feedbackRepository.findAll().stream()
+				.filter(f -> (f.getEventId().equals(eventId) && f.getUserId().equals(userId))).findAny();
 
-    @Override
-    public void saveFeedback(Long userId, Long eventId, String feedbackText) {
-        User user = userService.getUserById(userId);
-        Event event = eventService.getEventById(eventId);
+		if (!feedbackCheckDuplicate.isPresent()) {
+			Feedback feedback = new Feedback();
+			feedback.setFeedbackText(feedbackText);
+			feedback.setEventId(eventId);
+			feedback.setUserId(userId);
 
-        Feedback feedback = new Feedback();
-        feedback.setUser(user);
-        feedback.setEvent(event);
-        feedback.setFeedbackText(feedbackText);
+			feedbackRepository.save(feedback);
+			LOGGER.info("Feedback saved. UserId: {}, EventId: {}", userId, eventId);
 
-        feedbackRepository.save(feedback);
-        LOGGER.info("Feedback saved. UserId: {}, EventId: {}", userId, eventId);
-    }
+			return "Feedback saved";
 
-    public Feedback getFeedbackByUserIdAndEventId(Long userId, Long eventId) {
-    	LOGGER.info("Fetching feedback. UserId: {}, EventId: {}", userId, eventId);
-        return feedbackRepository.findByUserIdAndEventId(userId, eventId);
-    }
+		} else {
+			LOGGER.info("Feedback could not saved with UserId: {}, EventId: {} as user already given feedback", userId,
+					eventId);
+			return "Feedback could not saved with UserId:"+userId+" and EventId:"+eventId+" as user already given feedback";
+		}
+
+	}
+
+	public Object getFeedbackByUserIdAndEventId(Long userId, Long eventId) {
+		LOGGER.info("Fetching feedback. UserId: {}, EventId: {}", userId, eventId);
+		
+		Optional<Feedback> feedback= feedbackRepository.findAll().stream()
+		.filter(f->(f.getUserId().equals(userId) && f.getEventId().equals(eventId)))
+		.findAny();
+		
+		if(feedback.isPresent()) {
+			return feedback.get();
+		}else {
+			return "Feedback not found with user id:"+userId+" and event id:"+eventId;
+		}
+	}
 }
