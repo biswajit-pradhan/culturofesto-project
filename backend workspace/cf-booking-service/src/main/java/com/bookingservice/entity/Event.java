@@ -1,4 +1,4 @@
-package com.feedbackservice.entity;
+package com.bookingservice.entity;
 
 import java.sql.Date;
 import java.sql.Time;

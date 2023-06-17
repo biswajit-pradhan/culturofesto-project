@@ -1,96 +1,59 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 
-function PaymentPage() {
-  const [bookingDataId, setBookingDataId] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [cvvNumber, setCVVNumber] = useState("");
-  const [otpNumber, setOTPNumber] = useState("");
-  const [totalTicketPrice, setTotalTicketPrice] = useState("");
-  const [errors, setErrors] = useState({});
-
-  const handleBookingDataIdChange = (e) => {
-    setBookingDataId(e.target.value);
-  };
-
-  const handlePaymentMethodChange = (e) => {
-    setPaymentMethod(e.target.value);
-  };
-
-  const handleCardNumberChange = (e) => {
-    setCardNumber(e.target.value);
-  };
-
-  const handleExpiryDateChange = (e) => {
-    setExpiryDate(e.target.value);
-  };
-
-  const handleCVVNumberChange = (e) => {
-    setCVVNumber(e.target.value);
-  };
-
-  const handleOTPNumberChange = (e) => {
-    setOTPNumber(e.target.value);
-  };
-
-  const handleTotalTicketPriceChange = (e) => {
-    setTotalTicketPrice(e.target.value);
-  };
-
-  const validateForm = () => {
-    const errors = {};
-
-    if (!bookingDataId.trim()) {
-      errors.bookingDataId = "Booking Data ID is required";
-    }
-
-    if (!paymentMethod) {
-      errors.paymentMethod = "Payment Method is required";
-    }
-
-    if (!cardNumber.trim()) {
-      errors.cardNumber = "Card Number is required";
-    }
-
-    if (!expiryDate) {
-      errors.expiryDate = "Expiry Date is required";
-    }
-
-    if (!cvvNumber.trim()) {
-      errors.cvvNumber = "CVV Number is required";
-    }
-
-    if (!otpNumber.trim()) {
-      errors.otpNumber = "OTP Number is required";
-    }
-
-    if (!totalTicketPrice.trim()) {
-      errors.totalTicketPrice = "Total Ticket Price is required";
-    }
-
-    setErrors(errors);
-
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const isValid = validateForm();
-
-    if (isValid) {
-      // Perform form submission logic here
-    }
-  };
+const PaymentPage = () => {
+  const { bookingId, totalPrice } = useParams();
+  console.log(bookingId, totalPrice);
   const navigate = useNavigate();
+
+  const validationSchema = Yup.object().shape({
+    paymentMethod: Yup.string().required("Payment Method is required"),
+    cardNumber: Yup.string()
+      .min(12)
+      .max(12)
+      .required("Card Number is required"),
+    expiryDate: Yup.string().required("Expiry Date is required"),
+    cvvNumber: Yup.string().min(3).max(3).required("CVV Number is required"),
+    totalTicketPrice: Yup.number().required("Total Ticket Price is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      bookingDataId: bookingId, // Placeholder for booking ID
+      paymentMethod: "",
+      cardNumber: "",
+      expiryDate: "",
+      cvvNumber: "",
+      totalTicketPrice: totalPrice, // Placeholder for total price
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      handlePayment(values);
+    },
+  });
+
+  const handlePayment = (paymentData) => {
+    console.log(paymentData);
+
+    const bookingId = paymentData.bookingDataId; // Extract the bookingId from the paymentData object
+
+    axios
+      .post(`/api/booking/addpaymentdatabybookingid/${bookingId}`, paymentData)
+      .then((response) => {
+        console.log(response.data);
+        alert(response.data);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const handleBack = () => {
     navigate(-1);
-  };
-
-  const handlePayment = () => {
-    alert("Congratulations.. you booked the ticket");
   };
 
   return (
@@ -102,88 +65,99 @@ function PaymentPage() {
         <div className="event-booking-container">
           <div className="container">
             <h1 className="container_h1">Payment page</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
               <div className="form-group">
                 <label>Booking Data ID:</label>
                 <input
                   type="text"
-                  className={`form-control ${
-                    errors.bookingDataId && "is-invalid"
-                  }`}
-                  value={bookingDataId}
-                  onChange={handleBookingDataIdChange}
+                  className="form-control"
+                  name="bookingDataId"
+                  value={formik.values.bookingDataId}
+                  readOnly
                 />
-                {errors.bookingDataId && (
-                  <div className="invalid-feedback">{errors.bookingDataId}</div>
-                )}
               </div>
               <div className="form-group">
                 <label>Payment Method:</label>
                 <select
                   className={`form-control ${
-                    errors.paymentMethod && "is-invalid"
+                    formik.errors.paymentMethod &&
+                    formik.touched.paymentMethod &&
+                    "is-invalid"
                   }`}
-                  value={paymentMethod}
-                  onChange={handlePaymentMethodChange}
+                  name="paymentMethod"
+                  value={formik.values.paymentMethod}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 >
                   <option value="">Select a payment method</option>
-                  <option value="creditCard">Credit Card</option>
-                  <option value="debitCard">Debit Card</option>
+                  <option value="CREDIT">Credit Card</option>
+                  <option value="DEBIT">Debit Card</option>
                 </select>
-                {errors.paymentMethod && (
-                  <div className="invalid-feedback">{errors.paymentMethod}</div>
-                )}
+                {formik.errors.paymentMethod &&
+                  formik.touched.paymentMethod && (
+                    <div className="invalid-feedback">
+                      {formik.errors.paymentMethod}
+                    </div>
+                  )}
               </div>
               <div className="form-group">
                 <label>Card Number:</label>
                 <input
-                  type="text"
+                  type="number"
                   className={`form-control ${
-                    errors.cardNumber && "is-invalid"
+                    formik.errors.cardNumber &&
+                    formik.touched.cardNumber &&
+                    "is-invalid"
                   }`}
-                  value={cardNumber}
-                  onChange={handleCardNumberChange}
+                  name="cardNumber"
+                  value={formik.values.cardNumber}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
-                {errors.cardNumber && (
-                  <div className="invalid-feedback">{errors.cardNumber}</div>
+                {formik.errors.cardNumber && formik.touched.cardNumber && (
+                  <div className="invalid-feedback">
+                    {formik.errors.cardNumber}
+                  </div>
                 )}
               </div>
               <div className="form-group">
                 <label>Expiry Date:</label>
                 <input
-                  type="month"
+                  type="date"
                   className={`form-control ${
-                    errors.expiryDate && "is-invalid"
+                    formik.errors.expiryDate &&
+                    formik.touched.expiryDate &&
+                    "is-invalid"
                   }`}
-                  value={expiryDate}
-                  onChange={handleExpiryDateChange}
+                  name="expiryDate"
+                  value={formik.values.expiryDate}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
-                {errors.expiryDate && (
-                  <div className="invalid-feedback">{errors.expiryDate}</div>
+                {formik.errors.expiryDate && formik.touched.expiryDate && (
+                  <div className="invalid-feedback">
+                    {formik.errors.expiryDate}
+                  </div>
                 )}
               </div>
               <div className="form-group">
-                <label>CVV Number:</label>
+                <label>CVV:</label>
                 <input
                   type="password"
-                  className={`form-control ${errors.cvvNumber && "is-invalid"}`}
-                  value={cvvNumber}
-                  onChange={handleCVVNumberChange}
+                  className={`form-control ${
+                    formik.errors.cvvNumber &&
+                    formik.touched.cvvNumber &&
+                    "is-invalid"
+                  }`}
+                  name="cvvNumber"
+                  value={formik.values.cvvNumber}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
-                {errors.cvvNumber && (
-                  <div className="invalid-feedback">{errors.cvvNumber}</div>
-                )}
-              </div>
-              <div className="form-group">
-                <label>OTP Number:</label>
-                <input
-                  type="text"
-                  className={`form-control ${errors.otpNumber && "is-invalid"}`}
-                  value={otpNumber}
-                  onChange={handleOTPNumberChange}
-                />
-                {errors.otpNumber && (
-                  <div className="invalid-feedback">{errors.otpNumber}</div>
+                {formik.errors.cvvNumber && formik.touched.cvvNumber && (
+                  <div className="invalid-feedback">
+                    {formik.errors.cvvNumber}
+                  </div>
                 )}
               </div>
               <div className="form-group">
@@ -191,16 +165,14 @@ function PaymentPage() {
                 <input
                   type="number"
                   className={`form-control ${
-                    errors.totalTicketPrice && "is-invalid"
+                    formik.errors.totalTicketPrice &&
+                    formik.touched.totalTicketPrice &&
+                    "is-invalid"
                   }`}
-                  value={totalTicketPrice}
-                  onChange={handleTotalTicketPriceChange}
+                  name="totalTicketPrice"
+                  value={formik.values.totalTicketPrice}
+                  readOnly
                 />
-                {errors.totalTicketPrice && (
-                  <div className="invalid-feedback">
-                    {errors.totalTicketPrice}
-                  </div>
-                )}
               </div>
               <div
                 style={{
@@ -209,14 +181,9 @@ function PaymentPage() {
                   paddingTop: "10px",
                 }}
               >
-                <NavLink
-                  to="/"
-                  onClick={handlePayment}
-                  type="submit"
-                  className="btn btn-primary"
-                >
+                <button type="submit" className="btn btn-primary">
                   Make Payment
-                </NavLink>
+                </button>
               </div>
             </form>
           </div>
@@ -224,6 +191,6 @@ function PaymentPage() {
       </div>
     </>
   );
-}
+};
 
 export default PaymentPage;

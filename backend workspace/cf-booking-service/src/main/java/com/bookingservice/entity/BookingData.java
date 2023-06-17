@@ -1,4 +1,4 @@
-package com.userservice.entity;
+package com.bookingservice.entity;
 
 import java.sql.Date;
 
