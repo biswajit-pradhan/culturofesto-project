@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
 class PastEventsNotFoundExceptionTest {
-    /**
-     * Method under test: {@link PastEventsNotFoundException#PastEventsNotFoundException(String)}
-     */
+   
     @Test
     void testConstructor() {
         PastEventsNotFoundException actualPastEventsNotFoundException = new PastEventsNotFoundException(

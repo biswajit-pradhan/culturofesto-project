@@ -69,7 +69,9 @@ public class EventServiceController {
 				throw new PastEventsNotFoundException("No past events found");
 			}
 
-			logger.info("Returning {} past events", pastEvents.size());
+			if (logger.isInfoEnabled()) {
+	            logger.info("Returning {} past events", pastEvents.size());
+	        }
 			return ResponseEntity.ok(pastEvents);
 		} catch (PastEventsNotFoundException e) {
 			logger.error("Past events not found", e);
@@ -91,7 +93,9 @@ public class EventServiceController {
 				throw new FutureEventsNotFoundException("No future events found");
 			}
 
-			logger.info("Returning {} future events", futureEvents.size());
+			if (logger.isInfoEnabled()) {
+	            logger.info("Returning {} future events", futureEvents.size());
+	        }
 			return ResponseEntity.ok(futureEvents);
 		} catch (FutureEventsNotFoundException e) {
 			logger.error("Future events not found", e);
