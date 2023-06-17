@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -11,15 +10,8 @@ const HomePage = () => {
     // Handle search click and redirect to search page
   };
 
-  const intervalTime = 2000; // Time interval between image scrolls (in milliseconds)
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-
   const [pastEvents, setPastEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
-
-  const imageArrayBuffer = pastEvents.eventImage; // Assuming the byte array is returned as `data`
-  const blob = new Blob([imageArrayBuffer], { type: "image/png" });
-  const imageUrl = URL.createObjectURL(blob);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +60,7 @@ const HomePage = () => {
                 className="col-sm-12 col-md-6 col-lg-4 mb-4"
               >
                 <div className="card">
-                  {/* Add event image here */}
+                 
                   <div className="card-body">
                     <h5 className="card-title">{event.eventName}</h5>
                     <p className="card-text">
@@ -84,7 +76,7 @@ const HomePage = () => {
                       <br />
                       Capacity: {event.eventCapacity}
                       <br />
-                      {/* Add other event details */}
+                     
                     </p>
                   </div>
                 </div>
@@ -104,7 +96,7 @@ const HomePage = () => {
                 className="col-sm-12 col-md-6 col-lg-4 mb-4"
               >
                 <div className="card">
-                  {/* Add event image here */}
+                 
                   <div className="card-body">
                     <h5 className="card-title">{event.eventName}</h5>
                     <p className="card-text">
@@ -120,7 +112,7 @@ const HomePage = () => {
                       <br />
                       Capacity: {event.eventCapacity}
                       <br />
-                      {/* Add other event details */}
+                     
                     </p>
                   </div>
                 </div>

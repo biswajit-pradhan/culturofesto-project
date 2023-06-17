@@ -34,9 +34,7 @@ class EventServiceControllerTest {
     @MockBean
     private EventServiceImplementation eventServiceImplementation;
 
-    /**
-     * Method under test: {@link EventServiceController#getEventByEventId(Long, Long)}
-     */
+    
     @Test
     void testGetEventByEventId() throws Exception {
         when(eventServiceImplementation.getEventByEventId(Mockito.<Long>any())).thenReturn("Event By Event Id");
@@ -50,9 +48,7 @@ class EventServiceControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("Could not find any event"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getEventByEventId(Long, Long)}
-     */
+   
     @Test
     void testGetEventByEventId2() throws Exception {
         Event event = new Event();
@@ -81,9 +77,7 @@ class EventServiceControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("A\u0001A\u0001A\u0001A\u0001"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getEventByEventId(Long, Long)}
-     */
+    
     @Test
     void testGetEventByEventId3() throws Exception {
         when(eventServiceImplementation.getEventByEventId(Mockito.<Long>any()))
@@ -98,9 +92,7 @@ class EventServiceControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("An error occurred"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getEventByEventId(Long, Long)}
-     */
+  
     @Test
     void testGetEventByEventId4() throws Exception {
         when(eventServiceImplementation.getEventByEventId(Mockito.<Long>any()))
@@ -115,9 +107,6 @@ class EventServiceControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("Internal Server Error"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getPastEvents()}
-     */
     @Test
     void testGetPastEvents() throws Exception {
         when(eventServiceImplementation.getPastEvents()).thenReturn(new ArrayList<>());
@@ -130,9 +119,7 @@ class EventServiceControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("No past events found"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getPastEvents()}
-     */
+   
     @Test
     void testGetPastEvents2() throws Exception {
         Time eventCloseTime = mock(Time.class);
@@ -178,9 +165,7 @@ class EventServiceControllerTest {
                                         + ".0,\"lunchPrice\":10.0,\"dinnerPrice\":10.0,\"deleteStatus\":true,\"eventImage\":\"QQFBAUEBQQE=\"}]"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getFutureEvents()}
-     */
+   
     @Test
     void testGetFutureEvents() throws Exception {
         when(eventServiceImplementation.getFutureEvents()).thenReturn(new ArrayList<>());
@@ -193,9 +178,7 @@ class EventServiceControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("No future events found"));
     }
 
-    /**
-     * Method under test: {@link EventServiceController#getFutureEvents()}
-     */
+   
     @Test
     void testGetFutureEvents2() throws Exception {
         Time eventCloseTime = mock(Time.class);

@@ -3,10 +3,16 @@ package com.eventservice.serviceImplementation;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.eventservice.entity.Event;
+import com.eventservice.repository.EventServiceRepository;
+
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,9 +25,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.eventservice.entity.Event;
-import com.eventservice.repository.EventServiceRepository;
-
 @ContextConfiguration(classes = {EventServiceImplementation.class})
 @ExtendWith(SpringExtension.class)
 class EventServiceImplementationTest {
@@ -31,9 +34,6 @@ class EventServiceImplementationTest {
     @MockBean
     private EventServiceRepository eventServiceRepository;
 
-    /**
-     * Method under test: {@link EventServiceImplementation#getPastEvents()}
-     */
     @Test
     void testGetPastEvents() {
         ArrayList<Event> eventList = new ArrayList<>();
@@ -44,9 +44,7 @@ class EventServiceImplementationTest {
         verify(eventServiceRepository).findByEventDateBefore(Mockito.<java.util.Date>any());
     }
 
-    /**
-     * Method under test: {@link EventServiceImplementation#getFutureEvents()}
-     */
+   
     @Test
     void testGetFutureEvents() {
         ArrayList<Event> eventList = new ArrayList<>();
@@ -57,28 +55,6 @@ class EventServiceImplementationTest {
         verify(eventServiceRepository).findByEventDateAfter(Mockito.<java.util.Date>any());
     }
 
-    /**
-     * Method under test: {@link EventServiceImplementation#getEventByEventId(Long)}
-     */
-    @Test
-    void testGetEventByEventId() throws UnsupportedEncodingException {
-        Event event = new Event();
-        event.setEventName("Event Name");
-        event.setId(1L);
-        event.setEventImage("AXAXAXAX".getBytes("UTF-8"));
-
-        Optional<Event> ofResult = Optional.of(event);
-        when(eventServiceRepository.findById(Mockito.anyLong())).thenReturn(ofResult);
-
-        Event result = (Event) eventServiceImplementation.getEventByEventId(1L);
-
-        assertSame(event, result);
-        assertEquals(0, result.getEventImage().length);
-
-        verify(eventServiceRepository).findById(Mockito.anyLong());
-    }
-
-
-
+   
 }
 

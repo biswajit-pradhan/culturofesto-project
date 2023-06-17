@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
 class EventNotFoundExceptionTest {
-    /**
-     * Method under test: {@link EventNotFoundException#EventNotFoundException(String)}
-     */
+  
     @Test
     void testConstructor() {
         EventNotFoundException actualEventNotFoundException = new EventNotFoundException("An error occurred");
