@@ -34,7 +34,7 @@ public class BookingManagementServiceImpl implements BookingManagementService {
 		List<BookingManagement> bookingManagementDatas = bookingManagementRepository.getAllBookingManagementDataByUserId(userId);
 
 		bookingManagementDatas.stream()
-			.filter(bookingManagement -> bookingManagement.getEvent().getId().equals(eventId))
+			.filter(bookingManagement -> bookingManagement.getEventId().equals(eventId))
 			.forEach(bookingManagement -> bookingManagement.setCancelStatus(true));
 
 		// Save the updated entities back to the database

@@ -11,7 +11,7 @@ const getCurrentDate = () => {
 };
 
 const EventBookingPage = () => {
-  const loggedInUserId = 3;
+  const loggedInUserId = 1;
 
   const [bookingResponse, setBookingResponse] = useState(null);
   const { eventId } = useParams();
