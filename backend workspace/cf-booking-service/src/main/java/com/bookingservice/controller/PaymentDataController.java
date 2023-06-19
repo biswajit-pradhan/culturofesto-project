@@ -18,30 +18,33 @@ import com.bookingservice.serviceImpl.PaymentDataServiceImpl;
 
 @RestController
 @RequestMapping("/api/booking")
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "*" })
 public class PaymentDataController {
-	
-	 private static final Logger logger = LoggerFactory.getLogger(PaymentDataController.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(PaymentDataController.class);
 
 	@Autowired
 	private PaymentDataServiceImpl paymentDataServiceImpl;
-	
+
 	@GetMapping("/getpaymentdatabybookingid/{bookingId}")
-	public ResponseEntity<?> getPaymentDataByBookingId(@PathVariable Long bookingId){
+	public ResponseEntity<?> getPaymentDataByBookingId(@PathVariable Long bookingId) {
 		logger.info("Received request to get payment data for bookingId: {}", bookingId);
-		Object paymentData=paymentDataServiceImpl.getPaymentDataByBookingId(bookingId);
-		if(!(paymentData instanceof PaymentData)) {
+		Object paymentData = paymentDataServiceImpl.getPaymentDataByBookingId(bookingId);
+		if (!(paymentData instanceof PaymentData)) {
 			logger.warn("Payment data not found with booking id: {}", bookingId);
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Payment data not found with booking id "+bookingId);
-		}else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.body("Payment data not found with booking id " + bookingId);
+		} else {
 			logger.info("Payment data found with booking id: {}", bookingId);
 			return ResponseEntity.status(HttpStatus.OK).body(paymentData);
 		}
 	}
-	
+
 	@PostMapping("/addpaymentdatabybookingid/{bookingId}")
-	public ResponseEntity<?> addPaymentDataByBookingId(@RequestBody PaymentData paymentData ,@PathVariable Long bookingId){
-		 logger.info("Received request to add payment data for bookingId: {}", bookingId);
-		return ResponseEntity.status(HttpStatus.OK).body(paymentDataServiceImpl.addPaymentDataByBookingId(paymentData,bookingId));
+	public ResponseEntity<?> addPaymentDataByBookingId(@RequestBody PaymentData paymentData,
+			@PathVariable Long bookingId) {
+		logger.info("Received request to add payment data for bookingId: {}", bookingId);
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(paymentDataServiceImpl.addPaymentDataByBookingId(paymentData, bookingId));
 	}
 }
