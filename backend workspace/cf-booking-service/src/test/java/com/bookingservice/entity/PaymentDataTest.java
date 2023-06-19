@@ -13,28 +13,7 @@ import java.sql.Date;
 import org.junit.jupiter.api.Test;
 
 class PaymentDataTest {
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link PaymentData#PaymentData()}
-     *   <li>{@link PaymentData#setBookingId(Long)}
-     *   <li>{@link PaymentData#setCardNumber(BigInteger)}
-     *   <li>{@link PaymentData#setCvvNumber(Integer)}
-     *   <li>{@link PaymentData#setExpiryDate(Date)}
-     *   <li>{@link PaymentData#setId(Long)}
-     *   <li>{@link PaymentData#setPaymentMethod(PaymentMethod)}
-     *   <li>{@link PaymentData#setTotalPrice(Double)}
-     *   <li>{@link PaymentData#toString()}
-     *   <li>{@link PaymentData#getBookingId()}
-     *   <li>{@link PaymentData#getCardNumber()}
-     *   <li>{@link PaymentData#getCvvNumber()}
-     *   <li>{@link PaymentData#getExpiryDate()}
-     *   <li>{@link PaymentData#getId()}
-     *   <li>{@link PaymentData#getPaymentMethod()}
-     *   <li>{@link PaymentData#getTotalPrice()}
-     * </ul>
-     */
+  
     @Test
     void testConstructor() {
         PaymentData actualPaymentData = new PaymentData();
@@ -58,28 +37,6 @@ class PaymentDataTest {
         assertEquals(10.0d, actualPaymentData.getTotalPrice().doubleValue());
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link PaymentData#PaymentData(Long, Long, PaymentMethod, BigInteger, Date, Integer, Double)}
-     *   <li>{@link PaymentData#setBookingId(Long)}
-     *   <li>{@link PaymentData#setCardNumber(BigInteger)}
-     *   <li>{@link PaymentData#setCvvNumber(Integer)}
-     *   <li>{@link PaymentData#setExpiryDate(Date)}
-     *   <li>{@link PaymentData#setId(Long)}
-     *   <li>{@link PaymentData#setPaymentMethod(PaymentMethod)}
-     *   <li>{@link PaymentData#setTotalPrice(Double)}
-     *   <li>{@link PaymentData#toString()}
-     *   <li>{@link PaymentData#getBookingId()}
-     *   <li>{@link PaymentData#getCardNumber()}
-     *   <li>{@link PaymentData#getCvvNumber()}
-     *   <li>{@link PaymentData#getExpiryDate()}
-     *   <li>{@link PaymentData#getId()}
-     *   <li>{@link PaymentData#getPaymentMethod()}
-     *   <li>{@link PaymentData#getTotalPrice()}
-     * </ul>
-     */
     @Test
     void testConstructor2() {
         PaymentData actualPaymentData = new PaymentData(1L, 1L, PaymentMethod.CREDIT, BigInteger.valueOf(1L),
@@ -104,9 +61,7 @@ class PaymentDataTest {
         assertEquals(10.0d, actualPaymentData.getTotalPrice().doubleValue());
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+ 
     @Test
     void testEquals() {
         PaymentData paymentData = new PaymentData();
@@ -120,9 +75,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, null);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals2() {
         PaymentData paymentData = new PaymentData();
@@ -136,14 +89,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, "Different type to PaymentData");
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link PaymentData#equals(Object)}
-     *   <li>{@link PaymentData#hashCode()}
-     * </ul>
-     */
+
     @Test
     void testEquals3() {
         PaymentData paymentData = new PaymentData();
@@ -159,9 +105,7 @@ class PaymentDataTest {
         assertEquals(expectedHashCodeResult, paymentData.hashCode());
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals4() {
         PaymentData paymentData = new PaymentData();
@@ -184,9 +128,6 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
     @Test
     void testEquals5() {
         PaymentData paymentData = new PaymentData();
@@ -209,9 +150,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals6() {
         PaymentData paymentData = new PaymentData();
@@ -234,9 +173,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals7() {
         PaymentData paymentData = new PaymentData();
@@ -259,9 +196,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals8() {
         PaymentData paymentData = new PaymentData();
@@ -284,9 +219,6 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
     @Test
     void testEquals9() {
         PaymentData paymentData = new PaymentData();
@@ -309,9 +241,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals10() {
         PaymentData paymentData = new PaymentData();
@@ -334,9 +264,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals11() {
         PaymentData paymentData = new PaymentData();
@@ -359,9 +287,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals12() {
         PaymentData paymentData = new PaymentData();
@@ -384,9 +310,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals13() {
         PaymentData paymentData = new PaymentData();
@@ -409,9 +333,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals14() {
         PaymentData paymentData = new PaymentData();
@@ -434,9 +356,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals15() {
         PaymentData paymentData = new PaymentData();
@@ -459,9 +379,6 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
     @Test
     void testEquals16() {
         PaymentData paymentData = new PaymentData();
@@ -484,9 +401,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals17() {
         PaymentData paymentData = new PaymentData();
@@ -509,9 +424,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals18() {
         PaymentData paymentData = new PaymentData();
@@ -534,9 +447,7 @@ class PaymentDataTest {
         assertNotEquals(paymentData, paymentData2);
     }
 
-    /**
-     * Method under test: {@link PaymentData#equals(Object)}
-     */
+
     @Test
     void testEquals19() {
         PaymentData paymentData = new PaymentData();
