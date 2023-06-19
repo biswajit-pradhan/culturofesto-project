@@ -8,17 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 class BookingManagementTest {
-    /**
-     * Method under test: {@link BookingManagement#canEqual(Object)}
-     */
+
     @Test
     void testCanEqual() {
         assertFalse((new BookingManagement()).canEqual("Other"));
     }
 
-    /**
-     * Method under test: {@link BookingManagement#canEqual(Object)}
-     */
     @Test
     void testCanEqual2() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -41,28 +36,7 @@ class BookingManagementTest {
         assertTrue(bookingManagement.canEqual(bookingManagement2));
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link BookingManagement#BookingManagement()}
-     *   <li>{@link BookingManagement#setBookingDataId(Long)}
-     *   <li>{@link BookingManagement#setCancelStatus(boolean)}
-     *   <li>{@link BookingManagement#setEventId(Long)}
-     *   <li>{@link BookingManagement#setId(Long)}
-     *   <li>{@link BookingManagement#setPaymentDataId(Long)}
-     *   <li>{@link BookingManagement#setTicketNo(Long)}
-     *   <li>{@link BookingManagement#setUserId(Long)}
-     *   <li>{@link BookingManagement#toString()}
-     *   <li>{@link BookingManagement#getBookingDataId()}
-     *   <li>{@link BookingManagement#getEventId()}
-     *   <li>{@link BookingManagement#getId()}
-     *   <li>{@link BookingManagement#getPaymentDataId()}
-     *   <li>{@link BookingManagement#getTicketNo()}
-     *   <li>{@link BookingManagement#getUserId()}
-     *   <li>{@link BookingManagement#isCancelStatus()}
-     * </ul>
-     */
+   
     @Test
     void testConstructor() {
         BookingManagement actualBookingManagement = new BookingManagement();
@@ -85,28 +59,7 @@ class BookingManagementTest {
                 + " paymentDataId=1)", actualToStringResult);
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link BookingManagement#BookingManagement(Long, boolean, Long, Long, Long, Long, Long)}
-     *   <li>{@link BookingManagement#setBookingDataId(Long)}
-     *   <li>{@link BookingManagement#setCancelStatus(boolean)}
-     *   <li>{@link BookingManagement#setEventId(Long)}
-     *   <li>{@link BookingManagement#setId(Long)}
-     *   <li>{@link BookingManagement#setPaymentDataId(Long)}
-     *   <li>{@link BookingManagement#setTicketNo(Long)}
-     *   <li>{@link BookingManagement#setUserId(Long)}
-     *   <li>{@link BookingManagement#toString()}
-     *   <li>{@link BookingManagement#getBookingDataId()}
-     *   <li>{@link BookingManagement#getEventId()}
-     *   <li>{@link BookingManagement#getId()}
-     *   <li>{@link BookingManagement#getPaymentDataId()}
-     *   <li>{@link BookingManagement#getTicketNo()}
-     *   <li>{@link BookingManagement#getUserId()}
-     *   <li>{@link BookingManagement#isCancelStatus()}
-     * </ul>
-     */
+
     @Test
     void testConstructor2() {
         BookingManagement actualBookingManagement = new BookingManagement(1L, true, 1L, 1L, 1L, 1L, 1L);
@@ -129,9 +82,7 @@ class BookingManagementTest {
                 + " paymentDataId=1)", actualToStringResult);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -145,9 +96,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, null);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals2() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -161,14 +110,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, "Different type to BookingManagement");
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link BookingManagement#equals(Object)}
-     *   <li>{@link BookingManagement#hashCode()}
-     * </ul>
-     */
+
     @Test
     void testEquals3() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -184,14 +126,7 @@ class BookingManagementTest {
         assertEquals(expectedHashCodeResult, bookingManagement.hashCode());
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link BookingManagement#equals(Object)}
-     *   <li>{@link BookingManagement#hashCode()}
-     * </ul>
-     */
+
     @Test
     void testEquals4() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -216,9 +151,7 @@ class BookingManagementTest {
         assertEquals(expectedHashCodeResult, bookingManagement2.hashCode());
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals5() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -241,9 +174,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals6() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -266,9 +197,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals7() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -291,9 +220,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals8() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -316,9 +243,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals9() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -341,9 +266,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals10() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -366,9 +289,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals11() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -391,9 +312,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals12() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -416,9 +335,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals13() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -441,9 +358,6 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
     @Test
     void testEquals14() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -466,9 +380,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals15() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -491,9 +403,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals16() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -516,9 +426,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Method under test: {@link BookingManagement#equals(Object)}
-     */
+
     @Test
     void testEquals17() {
         BookingManagement bookingManagement = new BookingManagement();
@@ -541,14 +449,7 @@ class BookingManagementTest {
         assertNotEquals(bookingManagement, bookingManagement2);
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link BookingManagement#equals(Object)}
-     *   <li>{@link BookingManagement#hashCode()}
-     * </ul>
-     */
+
     @Test
     void testEquals18() {
         BookingManagement bookingManagement = new BookingManagement();

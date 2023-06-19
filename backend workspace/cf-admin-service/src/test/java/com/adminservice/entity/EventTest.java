@@ -1,4 +1,4 @@
-package com.homeservice.entity;
+package com.adminservice.entity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

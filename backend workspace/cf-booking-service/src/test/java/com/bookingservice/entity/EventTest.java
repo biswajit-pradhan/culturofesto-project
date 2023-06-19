@@ -14,17 +14,12 @@ import java.sql.Time;
 import org.junit.jupiter.api.Test;
 
 class EventTest {
-    /**
-     * Method under test: {@link Event#canEqual(Object)}
-     */
+
     @Test
     void testCanEqual() {
         assertFalse((new Event()).canEqual("Other"));
     }
 
-    /**
-     * Method under test: {@link Event#canEqual(Object)}
-     */
     @Test
     void testCanEqual2() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -61,42 +56,6 @@ class EventTest {
         assertTrue(event.canEqual(event2));
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link Event#Event()}
-     *   <li>{@link Event#setBreakfastPrice(Double)}
-     *   <li>{@link Event#setDeleteStatus(Boolean)}
-     *   <li>{@link Event#setDinnerPrice(Double)}
-     *   <li>{@link Event#setEventCapacity(Long)}
-     *   <li>{@link Event#setEventCloseTime(Time)}
-     *   <li>{@link Event#setEventDate(Date)}
-     *   <li>{@link Event#setEventImage(byte[])}
-     *   <li>{@link Event#setEventName(String)}
-     *   <li>{@link Event#setEventStartTime(Time)}
-     *   <li>{@link Event#setId(Long)}
-     *   <li>{@link Event#setLunchPrice(Double)}
-     *   <li>{@link Event#setRegistrationCloseDate(Date)}
-     *   <li>{@link Event#setRegistrationFee(Double)}
-     *   <li>{@link Event#setRegistrationOpenDate(Date)}
-     *   <li>{@link Event#toString()}
-     *   <li>{@link Event#getBreakfastPrice()}
-     *   <li>{@link Event#getDeleteStatus()}
-     *   <li>{@link Event#getDinnerPrice()}
-     *   <li>{@link Event#getEventCapacity()}
-     *   <li>{@link Event#getEventCloseTime()}
-     *   <li>{@link Event#getEventDate()}
-     *   <li>{@link Event#getEventImage()}
-     *   <li>{@link Event#getEventName()}
-     *   <li>{@link Event#getEventStartTime()}
-     *   <li>{@link Event#getId()}
-     *   <li>{@link Event#getLunchPrice()}
-     *   <li>{@link Event#getRegistrationCloseDate()}
-     *   <li>{@link Event#getRegistrationFee()}
-     *   <li>{@link Event#getRegistrationOpenDate()}
-     * </ul>
-     */
     @Test
     void testConstructor() throws UnsupportedEncodingException {
         Event actualEvent = new Event();
@@ -137,42 +96,7 @@ class EventTest {
         assertSame(registrationOpenDate, actualEvent.getRegistrationOpenDate());
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link Event#Event(Long, String, Date, Date, Date, Time, Time, Double, Long, Double, Double, Double, Boolean, byte[])}
-     *   <li>{@link Event#setBreakfastPrice(Double)}
-     *   <li>{@link Event#setDeleteStatus(Boolean)}
-     *   <li>{@link Event#setDinnerPrice(Double)}
-     *   <li>{@link Event#setEventCapacity(Long)}
-     *   <li>{@link Event#setEventCloseTime(Time)}
-     *   <li>{@link Event#setEventDate(Date)}
-     *   <li>{@link Event#setEventImage(byte[])}
-     *   <li>{@link Event#setEventName(String)}
-     *   <li>{@link Event#setEventStartTime(Time)}
-     *   <li>{@link Event#setId(Long)}
-     *   <li>{@link Event#setLunchPrice(Double)}
-     *   <li>{@link Event#setRegistrationCloseDate(Date)}
-     *   <li>{@link Event#setRegistrationFee(Double)}
-     *   <li>{@link Event#setRegistrationOpenDate(Date)}
-     *   <li>{@link Event#toString()}
-     *   <li>{@link Event#getBreakfastPrice()}
-     *   <li>{@link Event#getDeleteStatus()}
-     *   <li>{@link Event#getDinnerPrice()}
-     *   <li>{@link Event#getEventCapacity()}
-     *   <li>{@link Event#getEventCloseTime()}
-     *   <li>{@link Event#getEventDate()}
-     *   <li>{@link Event#getEventImage()}
-     *   <li>{@link Event#getEventName()}
-     *   <li>{@link Event#getEventStartTime()}
-     *   <li>{@link Event#getId()}
-     *   <li>{@link Event#getLunchPrice()}
-     *   <li>{@link Event#getRegistrationCloseDate()}
-     *   <li>{@link Event#getRegistrationFee()}
-     *   <li>{@link Event#getRegistrationOpenDate()}
-     * </ul>
-     */
+  
     @Test
     void testConstructor2() throws UnsupportedEncodingException {
         Date eventDate = mock(Date.class);
@@ -219,9 +143,7 @@ class EventTest {
         assertSame(registrationOpenDate2, actualEvent.getRegistrationOpenDate());
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -242,9 +164,7 @@ class EventTest {
         assertNotEquals(event, null);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals2() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -265,14 +185,7 @@ class EventTest {
         assertNotEquals(event, "Different type to Event");
     }
 
-    /**
-     * Methods under test:
-     *
-     * <ul>
-     *   <li>{@link Event#equals(Object)}
-     *   <li>{@link Event#hashCode()}
-     * </ul>
-     */
+
     @Test
     void testEquals3() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -295,9 +208,7 @@ class EventTest {
         assertEquals(expectedHashCodeResult, event.hashCode());
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals4() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -334,9 +245,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals5() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -373,9 +282,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals6() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -412,9 +319,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals7() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -451,9 +356,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals8() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -490,9 +393,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals9() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -529,9 +430,6 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
     @Test
     void testEquals10() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -568,9 +466,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals11() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -607,9 +503,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals12() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -646,9 +540,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals13() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -685,9 +577,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals14() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -724,9 +614,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals15() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -763,9 +651,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals16() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -802,9 +688,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals17() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -841,9 +725,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals18() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -880,9 +762,6 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
     @Test
     void testEquals19() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -919,9 +798,7 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
+
     @Test
     void testEquals20() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -958,9 +835,6 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
     @Test
     void testEquals21() throws UnsupportedEncodingException {
         Event event = new Event();
@@ -997,9 +871,6 @@ class EventTest {
         assertNotEquals(event, event2);
     }
 
-    /**
-     * Method under test: {@link Event#equals(Object)}
-     */
     @Test
     void testEquals22() throws UnsupportedEncodingException {
         Event event = new Event();
