@@ -17,7 +17,7 @@ import com.homeservice.utils.ImageUtils;
 @Service
 public class EventServiceImpl implements EventService {
 
-	private static final Logger logger = LoggerFactory.getLogger(EventServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(EventServiceImpl.class);
 
     @Autowired
     private EventRepository eventRepository;
@@ -30,7 +30,7 @@ public class EventServiceImpl implements EventService {
                 .collect(Collectors.toList());
         filteredList.forEach(e -> e.setEventImage(ImageUtils.decompressImage(e.getEventImage())));
 
-        logger.info("Retrieved all events successfully");
+        LOGGER.info("Retrieved all events successfully");
         return filteredList;
     }
 
@@ -41,10 +41,10 @@ public class EventServiceImpl implements EventService {
             Event event = eventOptional.get();
             event.setEventImage(ImageUtils.decompressImage(event.getEventImage()));
 
-            logger.info("Retrieved event with ID '{}' successfully", eventId);
+            LOGGER.info("Retrieved event with ID '{}' successfully", eventId);
             return event;
         } else {
-            logger.error("Event not found with ID: {}", eventId);
+        	LOGGER.error("Event not found with ID: {}", eventId);
             throw new EventNotFoundException("Event not found with ID: " + eventId);
         }
     }
