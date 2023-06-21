@@ -23,7 +23,7 @@ import com.homeservice.service.EventServiceImpl;
 @RequestMapping("api/home/event")
 @CrossOrigin(origins = {"*"})
 public class EventController {
-    private static final Logger logger = LoggerFactory.getLogger(EventController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventController.class);
 
     @Autowired
     private EventServiceImpl eventService;
@@ -36,13 +36,19 @@ public class EventController {
             if (events.isEmpty()) {
                 throw new NoEventsFoundException("No events are found in the database");
             }
-            logger.info("All events retrieved successfully");
+            if (LOGGER.isInfoEnabled()) {
+                LOGGER.info("All events retrieved successfully");
+            }
             return ResponseEntity.status(HttpStatus.OK).body(events);
         } catch (NoEventsFoundException e) {
-            logger.error("NoEventsFoundException: {}", e.getMessage());
+        	if (LOGGER.isErrorEnabled()) {
+                LOGGER.error("NoEventsFoundException: {}", e.getMessage());
+            }
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (Exception e) {
-            logger.error("Exception occurred while getting all events", e);
+        	if (LOGGER.isErrorEnabled()) {
+                LOGGER.error("Exception occurred while getting all events", e);
+            }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
         }
     }
@@ -54,10 +60,14 @@ public class EventController {
             Object event = eventService.getEventByEventId(eventId);
             if (event instanceof Event) {
                 if (needImage.equals(0L)) {
-                    logger.info("Event with ID '{}' retrieved successfully", eventId);
+                	if (LOGGER.isInfoEnabled()) {
+                        LOGGER.info("Event with ID '{}' retrieved successfully", eventId);
+                    }
                     return ResponseEntity.status(HttpStatus.OK).body(event);
                 } else {
-                    logger.info("Event image with ID '{}' retrieved successfully", eventId);
+                	if (LOGGER.isInfoEnabled()) {
+                        LOGGER.info("Event image with ID '{}' retrieved successfully", eventId);
+                    }
                     return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.IMAGE_PNG)
                             .body(((Event) event).getEventImage());
                 }
@@ -65,10 +75,14 @@ public class EventController {
             }
             throw new EventNotFoundException("Event not found with ID: " + eventId);
         } catch (EventNotFoundException e) {
-            logger.error("EventNotFoundException: {}", e.getMessage());
+        	if (LOGGER.isErrorEnabled()) {
+                LOGGER.error("EventNotFoundException: {}", e.getMessage());
+            }
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (Exception e) {
-            logger.error("Exception occurred while getting event by ID", e);
+        	if (LOGGER.isErrorEnabled()) {
+                LOGGER.error("Exception occurred while getting event by ID", e);
+            }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
         }
     }

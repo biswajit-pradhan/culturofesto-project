@@ -62,7 +62,7 @@ public class EventServiceImplTest {
     }
 
     @Test
-    public void testGetEventByEventId_ExistingEventId() {
+    public void testGetEventByEventIdExistingEventId() {
         // Mock data
         Long eventId = 1L;
         Event event = createEvent(eventId, "Event 1");
@@ -82,7 +82,7 @@ public class EventServiceImplTest {
     }
 
     @Test
-    public void testGetEventByEventId_NonExistingEventId() {
+    public void testGetEventByEventIdNonExistingEventId() {
         // Mock data
         Long eventId = 100L;
 
