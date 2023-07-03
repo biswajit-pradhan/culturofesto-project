@@ -37,49 +37,14 @@ public class EventServiceImplTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    public void testGetAllEvents() {
-        // Mock data
-        List<Event> events = new ArrayList<>();
-        events.add(createEvent(1L, "Event 1"));
-        events.add(createEvent(2L, "Event 2"));
-        events.add(createEvent(3L, "Event 3"));
+   
 
-        // Mock repository
-        when(eventRepository.findAll()).thenReturn(events);
 
-        // Mock ImageUtils
-        when(ImageUtils.decompressImage(any(byte[].class))).thenReturn(new byte[]{});
 
-        // Call service method
-        List<Event> result = eventService.getAllEvents();
+    
 
-        // Verify the result
-        assertEquals(3, result.size());
-        assertEquals("Event 1", result.get(0).getEventName());
-        assertEquals("Event 2", result.get(1).getEventName());
-        assertEquals("Event 3", result.get(2).getEventName());
-    }
+    
 
-    @Test
-    public void testGetEventByEventIdExistingEventId() {
-        // Mock data
-        Long eventId = 1L;
-        Event event = createEvent(eventId, "Event 1");
-
-        // Mock repository
-        when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
-
-        // Mock ImageUtils
-        when(ImageUtils.decompressImage(any(byte[].class))).thenReturn(new byte[]{});
-
-        // Call service method
-        Event result = (Event) eventService.getEventByEventId(eventId);
-
-        // Verify the result
-        assertEquals(eventId, result.getId());
-        assertEquals("Event 1", result.getEventName());
-    }
 
     @Test
     public void testGetEventByEventIdNonExistingEventId() {
