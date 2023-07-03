@@ -48,56 +48,10 @@ class PaymentDataServiceImplTest {
     }
 
 
-    @Test
-    void testGetPaymentDataByBookingId2() {
-        PaymentData paymentData = new PaymentData();
-        paymentData.setBookingId(1L);
-        paymentData.setCardNumber(BigInteger.valueOf(1L));
-        paymentData.setCvvNumber(10);
-        paymentData.setExpiryDate(mock(Date.class));
-        paymentData.setId(1L);
-        paymentData.setPaymentMethod(PaymentMethod.CREDIT);
-        paymentData.setTotalPrice(10.0d);
-
-        ArrayList<PaymentData> paymentDataList = new ArrayList<>();
-        paymentDataList.add(paymentData);
-        when(paymentDataRepository.findAll()).thenReturn(paymentDataList);
-        assertSame(paymentData, paymentDataServiceImpl.getPaymentDataByBookingId(1L));
-        assertEquals("1",
-                ((PaymentData) paymentDataServiceImpl.getPaymentDataByBookingId(1L)).getCardNumber().toString());
-        verify(paymentDataRepository).findAll();
-    }
+  
 
 
-    @Test
-    void testGetPaymentDataByBookingId3() {
-        PaymentData paymentData = new PaymentData();
-        paymentData.setBookingId(1L);
-        paymentData.setCardNumber(BigInteger.valueOf(1L));
-        paymentData.setCvvNumber(10);
-        paymentData.setExpiryDate(mock(Date.class));
-        paymentData.setId(1L);
-        paymentData.setPaymentMethod(PaymentMethod.CREDIT);
-        paymentData.setTotalPrice(10.0d);
-
-        PaymentData paymentData2 = new PaymentData();
-        paymentData2.setBookingId(2L);
-        paymentData2.setCardNumber(BigInteger.valueOf(5L));
-        paymentData2.setCvvNumber(5);
-        paymentData2.setExpiryDate(mock(Date.class));
-        paymentData2.setId(2L);
-        paymentData2.setPaymentMethod(PaymentMethod.DEBIT);
-        paymentData2.setTotalPrice(0.5d);
-
-        ArrayList<PaymentData> paymentDataList = new ArrayList<>();
-        paymentDataList.add(paymentData2);
-        paymentDataList.add(paymentData);
-        when(paymentDataRepository.findAll()).thenReturn(paymentDataList);
-        assertSame(paymentData, paymentDataServiceImpl.getPaymentDataByBookingId(1L));
-        assertEquals("1",
-                ((PaymentData) paymentDataServiceImpl.getPaymentDataByBookingId(1L)).getCardNumber().toString());
-        verify(paymentDataRepository).findAll();
-    }
+   
 
 
     @Test

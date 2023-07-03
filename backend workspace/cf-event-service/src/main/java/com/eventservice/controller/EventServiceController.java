@@ -30,7 +30,7 @@ public class EventServiceController {
 	@Autowired
 	private EventServiceImplementation eventService;
 
-	@GetMapping("/{eventId}/{needImage}")
+	@GetMapping("{eventId}/{needImage}")
 	public ResponseEntity<?> getEventByEventId(@PathVariable Long eventId, @PathVariable Long needImage) {
 		try {
 			logger.info("Fetching event with ID: {}", eventId);

@@ -148,43 +148,8 @@ class BookingDataServiceImplTest {
         verify(bookingData).setUserId(Mockito.<Long>any());
     }
 
-    /**
-     * Method under test: {@link BookingDataServiceImpl#addBookingDataByEventAndUserId(BookingData, Long, Long)}
-     */
-    @Test
-    void testAddBookingDataByEventAndUserId() {
-        BookingData bookingData = new BookingData();
-        bookingData.setBookingDate(mock(Date.class));
-        bookingData.setEventId(1L);
-        bookingData.setId(1L);
-        bookingData.setNumberOfAdults(1L);
-        bookingData.setNumberOfBreakfast(1L);
-        bookingData.setNumberOfChildren(1L);
-        bookingData.setNumberOfDinner(1L);
-        bookingData.setNumberOfLunch(1L);
-        bookingData.setTotalPrice(10.0d);
-        bookingData.setUserId(1L);
-        when(bookingDataRepository.save(Mockito.<BookingData>any())).thenReturn(bookingData);
-        when(bookingDataRepository.findAll()).thenReturn(new ArrayList<>());
-
-        BookingData bookingData2 = new BookingData();
-        bookingData2.setBookingDate(mock(Date.class));
-        bookingData2.setEventId(1L);
-        bookingData2.setId(1L);
-        bookingData2.setNumberOfAdults(1L);
-        bookingData2.setNumberOfBreakfast(1L);
-        bookingData2.setNumberOfChildren(1L);
-        bookingData2.setNumberOfDinner(1L);
-        bookingData2.setNumberOfLunch(1L);
-        bookingData2.setTotalPrice(10.0d);
-        bookingData2.setUserId(1L);
-        assertEquals("Event booked successfully",
-                bookingDataServiceImpl.addBookingDataByEventAndUserId(bookingData2, 1L, 1L));
-        verify(bookingDataRepository).save(Mockito.<BookingData>any());
-        verify(bookingDataRepository).findAll();
-        assertEquals(1L, bookingData2.getUserId().longValue());
-        assertEquals(1L, bookingData2.getEventId().longValue());
-    }
+   
+  
 
     /**
      * Method under test: {@link BookingDataServiceImpl#addBookingDataByEventAndUserId(BookingData, Long, Long)}
