@@ -39,10 +39,15 @@ public class EventServiceImplTest {
 
    
 
-   
+
+
+    
+
+    
+
 
     @Test
-    public void testGetEventByEventId_NonExistingEventId() {
+    public void testGetEventByEventIdNonExistingEventId() {
         // Mock data
         Long eventId = 100L;
 

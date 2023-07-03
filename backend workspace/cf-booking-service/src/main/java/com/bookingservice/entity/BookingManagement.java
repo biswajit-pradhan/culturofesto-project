@@ -1,4 +1,4 @@
-package com.userservice.entity;
+package com.bookingservice.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
